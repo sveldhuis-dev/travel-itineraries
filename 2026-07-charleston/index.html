@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charleston Family Trip · July 1–5, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1612;
+    --fog: #f5f0e8;
+    --cream: #fdfaf4;
+    --teal: #2a6b6b;
+    --teal-light: #e8f4f4;
+    --gold: #c8983a;
+    --gold-pale: #faf3e0;
+    --rust: #b84c2e;
+    --rust-pale: #fdf0ec;
+    --moss: #4a6741;
+    --border: #ddd5c0;
+    --muted: #7a6f5e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 15px; line-height: 1.65; }
+
+  .hero { background: var(--teal); color: #fff; padding: 64px 40px 48px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='36' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; pointer-events: none; }
+  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 12px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 700; line-height: 1.1; margin-bottom: 8px; }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 10px; }
+  .hero-travelers { font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 28px; font-family: 'DM Mono', monospace; letter-spacing: 0.05em; }
+  .hero-chips { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .chip { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 500; }
+
+  .alert { background: var(--rust-pale); border-left: 4px solid var(--rust); padding: 14px 20px; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+  .alert strong { color: var(--rust); }
+  .alert-wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; margin-top: 20px; }
+
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  .tab-nav { background: var(--fog); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+  .tab-nav-inner { display: flex; overflow-x: auto; scrollbar-width: none; max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .tab-nav-inner::-webkit-scrollbar { display: none; }
+  .tab-btn { padding: 14px 16px; border: none; background: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--muted); white-space: nowrap; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; }
+  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+  .tab-btn:hover { color: var(--ink); }
+
+  .panel { display: none; padding: 40px 0 60px; }
+  .panel.active { display: block; }
+
+  .section-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  h2 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
+  h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+
+  .logistics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+  @media (max-width: 620px) { .logistics-grid { grid-template-columns: 1fr; } }
+
+  .card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; }
+  .card-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+
+  .flight-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .flight-row:last-child { border-bottom: none; }
+  .flight-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--teal); font-weight: 500; min-width: 70px; }
+  .flight-route { flex: 1; }
+  .flight-time { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
+
+  .badge { display: inline-block; background: var(--gold-pale); color: #7a5c10; border: 1px solid #e8d49a; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; font-family: 'DM Mono', monospace; }
+  .badge.teal { background: var(--teal-light); color: var(--teal); border-color: #9ecece; }
+  .badge.rust { background: var(--rust-pale); color: var(--rust); border-color: #f0b8a8; }
+  .badge.green { background: #eef5eb; color: var(--moss); border-color: #b8d4b0; }
+
+  .hotel-detail { margin: 6px 0; font-size: 14px; }
+  .hotel-detail span { color: var(--muted); font-size: 12px; margin-right: 6px; }
+
+  /* TRAVELER PILLS */
+  .travelers-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .traveler-pill { background: #fff; border: 1px solid var(--border); border-radius: 100px; padding: 5px 14px; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+  .traveler-pill .role { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* PARKING ANALYSIS */
+  .parking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  @media (max-width: 600px) { .parking-grid { grid-template-columns: 1fr; } }
+  .parking-option { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; }
+  .parking-option.recommended { border-color: var(--teal); border-width: 2px; }
+  .parking-option h3 { font-size: 1rem; margin-bottom: 6px; }
+  .parking-verdict { background: var(--teal-light); border: 1px solid #9ecece; border-radius: 8px; padding: 14px 18px; font-size: 13.5px; color: #1a4040; }
+  .cost-line { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--teal); font-weight: 500; margin: 4px 0; }
+  .pro-con { font-size: 12.5px; margin-top: 8px; }
+  .pro-con li { padding: 3px 0; color: #4a4035; }
+  .pro-con li::before { margin-right: 6px; }
+  .pro-con.pros li::before { content: '✓'; color: var(--moss); }
+  .pro-con.cons li::before { content: '✗'; color: var(--rust); }
+
+  /* DAY CARDS */
+  .day-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+  .day-date { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--teal); line-height: 1; }
+  .day-name { font-size: 14px; font-weight: 500; color: var(--muted); }
+  .day-theme { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 22px; }
+  .tl-dot { position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--teal); border: 2px solid var(--cream); box-shadow: 0 0 0 2px var(--teal); }
+  .tl-dot.gold { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+  .tl-dot.rust { background: var(--rust); box-shadow: 0 0 0 2px var(--rust); }
+  .tl-time { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .tl-title { font-weight: 600; font-size: 15px; margin-bottom: 3px; }
+  .tl-desc { font-size: 13.5px; color: #4a4035; }
+  .tl-tip { margin-top: 6px; background: var(--gold-pale); border-left: 3px solid var(--gold); padding: 7px 12px; font-size: 12.5px; color: #6b5020; border-radius: 0 4px 4px 0; }
+
+  .day-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 24px 28px; margin-bottom: 28px; }
+
+  /* RESERVATION BADGE */
+  .res-badge { display: inline-flex; align-items: center; gap: 6px; background: #eef5eb; border: 1px solid #b8d4b0; border-radius: 6px; padding: 5px 12px; font-size: 12px; font-weight: 600; color: var(--moss); margin-bottom: 10px; }
+
+  /* DINING */
+  .dining-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .dining-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+  .dining-card.confirmed { border-color: var(--moss); border-width: 2px; }
+  .dining-type { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .dining-card h3 { font-size: 1rem; margin-bottom: 6px; }
+  .dining-card p { font-size: 13px; color: #4a4035; }
+  .must-try { margin-top: 8px; font-size: 12px; font-weight: 500; color: var(--rust); }
+  .res-time { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--moss); font-weight: 500; margin-bottom: 6px; }
+
+  /* BUDGET */
+  .budget-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .budget-table th { text-align: left; padding: 10px 14px; background: var(--fog); border-bottom: 2px solid var(--border); font-size: 11px; font-family: 'DM Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .budget-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .budget-table tr:last-child td { border-bottom: none; }
+  .budget-table .amount { font-family: 'DM Mono', monospace; font-size: 13px; text-align: right; white-space: nowrap; }
+  .budget-table .total td { font-weight: 600; border-top: 2px solid var(--teal); color: var(--teal); background: var(--teal-light); }
+
+  /* PACKING */
+  .pack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .pack-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+  .pack-card h3 { font-size: 12px; font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal); margin-bottom: 10px; }
+  .pack-card ul { list-style: none; }
+  .pack-card li { font-size: 13px; padding: 4px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .pack-card li:last-child { border-bottom: none; }
+  .pack-card li::before { content: '○'; color: var(--gold); font-size: 10px; flex-shrink: 0; }
+
+  /* TIPS */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .tip-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; font-size: 13.5px; }
+  .tip-icon { font-size: 22px; margin-bottom: 8px; }
+  .tip-card strong { display: block; margin-bottom: 4px; font-size: 14px; }
+
+  footer { text-align: center; padding: 32px 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); font-family: 'DM Mono', monospace; letter-spacing: 0.05em; }
+
+  @media (max-width: 480px) {
+    .hero { padding: 40px 20px 32px; }
+    .wrap { padding: 0 16px; }
+    .day-card { padding: 18px 16px; }
+    .day-theme { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Family Trip · Delta GUMLQH · Mills House #3476396598</div>
+  <h1>Charleston, South Carolina</h1>
+  <div class="hero-sub">July 1–5, 2026 &nbsp;·&nbsp; Mills House, 115 Meeting Street</div>
+  <div class="hero-travelers">Steve &amp; Leslie &nbsp;·&nbsp; Alexis &amp; Chris &nbsp;·&nbsp; Grant &amp; Stephanie &nbsp;·&nbsp; 6 Travelers</div>
+  <div class="hero-chips">
+    <span class="chip">✈️ Delta First Class</span>
+    <span class="chip">🍽️ 4 Confirmed Reservations</span>
+    <span class="chip">🎆 July 4th Fireworks</span>
+    <span class="chip">4 Nights</span>
+  </div>
+</div>
+
+<div class="alert-wrap">
+  <div class="alert">
+    ⚠️ <strong>July 5 Early Departure:</strong> Breeze MX258 boards at <strong>6:55 AM</strong> — leave hotel no later than <strong>5:45 AM</strong>. Hotel checkout is 11 AM; stage bags the night before and pre-book your rideshare. Keep July 4 evening relaxed.
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="logistics">Logistics</button>
+    <button class="tab-btn" data-tab="parking">Car vs. Uber</button>
+    <button class="tab-btn" data-tab="day1">Wed Jul 1</button>
+    <button class="tab-btn" data-tab="day2">Thu Jul 2</button>
+    <button class="tab-btn" data-tab="day3">Fri Jul 3</button>
+    <button class="tab-btn" data-tab="day4">Sat Jul 4</button>
+    <button class="tab-btn" data-tab="dining">Dining</button>
+    <button class="tab-btn" data-tab="budget">Budget</button>
+    <button class="tab-btn" data-tab="packing">Packing</button>
+    <button class="tab-btn" data-tab="tips">Local Tips</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ LOGISTICS ═══════════════════════ -->
+<div id="panel-logistics" class="panel">
+  <div class="wrap">
+    <div class="section-label">Who's Coming</div>
+    <div class="travelers-bar" style="margin-top:8px; margin-bottom:32px;">
+      <div class="traveler-pill">👨 Steve <span class="role">Host</span></div>
+      <div class="traveler-pill">👩 Leslie <span class="role">Host</span></div>
+      <div class="traveler-pill">👧 Alexis <span class="role">Daughter</span></div>
+      <div class="traveler-pill">🧑 Chris <span class="role">Alexis's BF</span></div>
+      <div class="traveler-pill">👦 Grant <span class="role">Son</span></div>
+      <div class="traveler-pill">👩 Stephanie <span class="role">Grant's GF</span></div>
+    </div>
+
+    <div class="section-label">Flights &amp; Hotel</div>
+    <h2>Travel Details</h2>
+
+    <div class="logistics-grid">
+      <div class="card">
+        <div class="card-label">Outbound · July 1</div>
+        <div class="flight-row">
+          <div class="flight-num">DL 2441</div>
+          <div class="flight-route">CVG → ATL</div>
+          <div class="flight-time">5:34 AM → 7:04 AM</div>
+        </div>
+        <div class="flight-row">
+          <div class="flight-num">DL 3091</div>
+          <div class="flight-route">ATL → CHS</div>
+          <div class="flight-time">8:45 AM → 10:00 AM</div>
+        </div>
+        <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="badge">GUMLQH</span>
+          <span class="badge">First Class 01A/01B</span>
+          <span class="badge teal">Medallion Upgrade</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Return · July 5</div>
+        <div class="flight-row">
+          <div class="flight-num">MX 258</div>
+          <div class="flight-route">CHS → CVG (nonstop)</div>
+          <div class="flight-time">7:25 AM → 9:09 AM</div>
+        </div>
+        <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="badge rust">Board 6:55 AM</span>
+          <span class="badge">T6FMTP</span>
+          <span class="badge">First Class 2A, 2C, 3C</span>
+        </div>
+        <div style="margin-top:10px; font-size:12.5px; color:var(--muted);">1 carry-on + 2 checked bags each</div>
+      </div>
+
+      <div class="card" style="grid-column: 1 / -1;">
+        <div class="card-label">Hotel · 4 Nights</div>
+        <div style="display:flex; flex-wrap:wrap; gap:40px; align-items:flex-start; margin-top:4px;">
+          <div>
+            <h3 style="font-size:1.1rem; margin-bottom:10px;">Mills House Charleston<br><span style="font-size:0.85rem; font-weight:400; color:var(--muted);">Curio Collection by Hilton</span></h3>
+            <div class="hotel-detail"><span>📍</span>115 Meeting Street, Charleston, SC 29401</div>
+            <div class="hotel-detail"><span>📞</span>(843) 577-2400</div>
+            <div class="hotel-detail"><span>#</span>Hilton Confirmation: 3476396598</div>
+          </div>
+          <div>
+            <div class="hotel-detail"><span>Check-in</span>Wednesday July 1 · 4:00 PM</div>
+            <div class="hotel-detail"><span>Check-out</span>Sunday July 5 · 11:00 AM</div>
+            <div style="margin-top:12px;"><span class="badge teal">Historic District</span>&nbsp;<span class="badge">Walking distance to everything</span></div>
+          </div>
+          <div style="flex:1; min-width:200px; background:var(--fog); border-radius:8px; padding:14px 16px; font-size:13px;">
+            <strong>📍 Location Advantage</strong><br>
+            Corner of Meeting &amp; Queen — steps from Rainbow Row, the Battery, City Market, and King Street. All four dinner reservations are walkable or a very short ride from the hotel.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFIRMED RESERVATIONS SUMMARY -->
+    <div class="section-label">Confirmed Dinner Reservations</div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:12px; margin-top:10px; margin-bottom:32px;">
+      <div class="card" style="border-color:var(--moss);">
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:6px;">Wed Jul 1</div>
+        <div style="font-weight:700; font-size:15px;">FIG</div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--moss); margin-top:2px;">6:15 PM · Confirmed ✓</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">232 Meeting St · 3 min walk</div>
+      </div>
+      <div class="card" style="border-color:var(--moss);">
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:6px;">Thu Jul 2</div>
+        <div style="font-weight:700; font-size:15px;">Husk</div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--moss); margin-top:2px;">8:15 PM · Confirmed ✓</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">76 Queen St · 4 min walk</div>
+      </div>
+      <div class="card" style="border-color:var(--moss);">
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:6px;">Fri Jul 4</div>
+        <div style="font-weight:700; font-size:15px;">Jackrabbit Filly</div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--moss); margin-top:2px;">8:15 PM · Confirmed ✓</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">N. Charleston · Rideshare/car needed</div>
+      </div>
+      <div class="card" style="border-color:var(--moss);">
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:6px;">Sat Jul 5</div>
+        <div style="font-weight:700; font-size:15px;">High Cotton</div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--moss); margin-top:2px;">6:30 PM · Confirmed ✓</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">199 E Bay St · 8 min walk</div>
+      </div>
+    </div>
+
+    <div class="card" style="background:var(--fog);">
+      <h3 style="margin-bottom:10px;">Getting Around · 6 People</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:12px; font-size:13.5px;">
+        <div><strong>🚶 On foot</strong><br>FIG, Husk, High Cotton, Rainbow Row, Battery, City Market, Waterfront Park — all walkable from Mills House.</div>
+        <div><strong>🚌 DASH Trolley</strong><br>Free city shuttle. Route 211 covers Meeting &amp; King. Great for longer peninsula hops without fighting parking.</div>
+        <div><strong>🚗 Car / Rideshare</strong><br>Needed for Angel Oak, Boone Hall, Folly Beach, and Jackrabbit Filly (North Charleston). See the Car vs. Uber tab for full analysis.</div>
+        <div><strong>🛺 Pedicabs</strong><br>Perfect for Battery-to-hotel return after evening walks. Fun group experience. Flag them near White Point Garden.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ CAR vs UBER ═══════════════════════ -->
+<div id="panel-parking" class="panel">
+  <div class="wrap">
+    <div class="section-label">Transportation Analysis</div>
+    <h2>Rental Car vs. Rideshare</h2>
+    <p style="margin-bottom:28px; color:var(--muted); font-size:14px;">For 6 people over 4 days, with a mix of walkable dinners and 2–3 day trips that require wheels. Numbers based on current Charleston rates.</p>
+
+    <div class="parking-grid">
+      <!-- RENTAL CAR -->
+      <div class="parking-option">
+        <div class="card-label">Option A</div>
+        <h3>🚗 Rental Car + Downtown Parking</h3>
+        <div class="cost-line" style="margin-top:8px;">Rental (4 days, mid-size SUV): ~$220–280</div>
+        <div class="cost-line">Downtown garage (4 days × $24 max): ~$96</div>
+        <div class="cost-line">Airport dropoff/pickup (already have): $0</div>
+        <div style="margin-top:8px; padding-top:8px; border-top:1px solid var(--border); font-family:'DM Mono',monospace; font-size:14px; font-weight:600; color:var(--ink);">Est. Total: ~$320–380</div>
+        <ul class="pro-con pros" style="margin-top:12px;">
+          <li>Freedom to leave anytime for day trips</li>
+          <li>Cheaper than 6 Uber rides to North Charleston</li>
+          <li>No surge pricing on July 4th weekend</li>
+          <li>Street meters free after 6 PM (dinners cost $0)</li>
+          <li>Sundays &amp; holidays: all street parking free</li>
+        </ul>
+        <ul class="pro-con cons" style="margin-top:8px;">
+          <li>Downtown parking is a daily hassle</li>
+          <li>No "in and out" at garages — leave and pay again</li>
+          <li>Driver can't drink at dinners</li>
+          <li>King and Queen Garage: $24/day max (most expensive)</li>
+        </ul>
+      </div>
+
+      <!-- RIDESHARE ONLY -->
+      <div class="parking-option recommended">
+        <div class="card-label" style="color:var(--teal);">Option B — Recommended</div>
+        <h3>📱 Rideshare Only (Uber/Lyft)</h3>
+        <div class="cost-line" style="margin-top:8px;">Airport transfers (2 × ~$35 × 2 vehicles): ~$140</div>
+        <div class="cost-line">Day trip to Angel Oak + Boone Hall: ~$60 rt</div>
+        <div class="cost-line">Day trip to Folly Beach (2 cars): ~$80 rt</div>
+        <div class="cost-line">Jackrabbit Filly Fri (2 cars × $25): ~$100 rt</div>
+        <div class="cost-line">Misc evening rides (est.): ~$60</div>
+        <div style="margin-top:8px; padding-top:8px; border-top:1px solid var(--border); font-family:'DM Mono',monospace; font-size:14px; font-weight:600; color:var(--ink);">Est. Total: ~$440</div>
+        <ul class="pro-con pros" style="margin-top:12px;">
+          <li>Everyone drinks at every dinner — no DD needed</li>
+          <li>No parking stress in Historic District</li>
+          <li>Drop off door-to-door at every restaurant</li>
+          <li>No rental car hassle at airport on 5:45 AM departure</li>
+          <li>DASH trolley + walking covers most of downtown</li>
+        </ul>
+        <ul class="pro-con cons" style="margin-top:8px;">
+          <li>July 4th surge pricing likely — pre-book return from fireworks</li>
+          <li>6 people needs 2 cars for every ride</li>
+          <li>Less flexible for spontaneous day trips</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="parking-verdict">
+      <strong>💡 Verdict for this trip:</strong> Rideshare-only is likely the better call for a group of 6 on a 4-day trip centered on walkable downtown Charleston. Three of your four dinners are a short walk from Mills House. The only real driving days are Thursday (optional Boone Hall/Angel Oak) and Friday (Jackrabbit Filly in North Charleston). The ability for everyone to drink freely at all four dinners over a holiday weekend is worth the ~$60 premium over a rental. <br><br>
+      <strong>However:</strong> If you're doing Boone Hall + Angel Oak + Folly Beach all in separate day trips, a rental car for just 2 of the 4 days (~$120–140) might make sense as a hybrid — rent for day trips, Uber for the rest. Check rates at CHS airport closer to departure.
+    </div>
+
+    <div style="margin-top:24px;">
+      <h3 style="font-size:1rem; margin-bottom:12px;">Charleston Parking Quick Reference</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:12px; font-size:13px;">
+        <div class="card">
+          <strong>City Garages (12 total)</strong><br>
+          $1 per 20 min · <strong>$24/day max</strong><br>
+          No in/out privileges — pay again if you leave.<br>
+          Best: Visitor Center Garage (63 Mary St) — $7 after 3 PM, $5 after 5 PM.
+        </div>
+        <div class="card">
+          <strong>Street Meters</strong><br>
+          $3/hr · 2-hr max · Mon–Sat 9 AM–6 PM<br>
+          <strong>Free after 6 PM every day</strong><br>
+          <strong>Free all day Sunday &amp; holidays</strong><br>
+          → July 4 (Saturday): meters enforce until 6 PM
+        </div>
+        <div class="card">
+          <strong>HOP Park &amp; Ride</strong><br>
+          $5/day · shuttle every 15 min (6 AM–3 AM)<br>
+          Stops on Meeting, Broad &amp; East Bay.<br>
+          Good option if you want a car for day trips but not to park downtown overnight.
+        </div>
+        <div class="card">
+          <strong>Jackrabbit Filly (Fri night)</strong><br>
+          1083 E. Montague Ave, North Charleston<br>
+          ~20 min from hotel · free street parking on Montague.<br>
+          Rideshare: ~$20–25 each way per car (need 2 cars for 6).
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ DAY 1 — WED JULY 1 ═══════════════════════ -->
+<div id="panel-day1" class="panel">
+  <div class="wrap">
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-date">Jul 1</div>
+        <div><div class="day-name">Wednesday</div></div>
+        <div class="day-theme">Arrival Day</div>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">5:34 AM — CVG</div>
+          <div class="tl-title">Depart — Delta First Class</div>
+          <div class="tl-desc">CVG → ATL (DL 2441), connect to DL 3091, arrive Charleston 10:00 AM. Hot breakfast service in First Class on this routing.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">10:00–11:00 AM</div>
+          <div class="tl-title">Land &amp; Transfer to Hotel</div>
+          <div class="tl-desc">Two rideshares (3 per car) from CHS to Mills House — ~20 min, ~$35 each. Hotel holds bags until 4 PM check-in.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">11:30 AM</div>
+          <div class="tl-title">Harken Café — First Morning Fuel</div>
+          <div class="tl-desc">A 5-min walk from the hotel. Great intro to the city over biscuits, pastries, and coffee. The Butter Me Up biscuit (herbed cheese, egg soufflé, pickled shallots on ricotta biscuit) is the move.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">1:00 PM</div>
+          <div class="tl-title">Rainbow Row &amp; The Battery</div>
+          <div class="tl-desc">Walk south to the 13 iconic pastel Georgian homes on East Bay Street, then continue to Battery &amp; White Point Garden for harbor views and historic cannons. Great group photo spot before the crowds thin in the afternoon.</div>
+          <div class="tl-tip">📸 Best light on Rainbow Row is morning/early afternoon. Bring the camera — this is a Lightroom moment.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">3:00 PM</div>
+          <div class="tl-title">Hotel Check-In &amp; Freshen Up</div>
+          <div class="tl-desc">Drop bags, settle in, maybe a quick hotel pool or rooftop stop before dinner.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">4:30 PM</div>
+          <div class="tl-title">King Street Wander</div>
+          <div class="tl-desc">Upper King has the indie shops, galleries, and cocktail bars. Good way to orient the group before dinner.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">6:15 PM</div>
+          <div class="tl-title">🍽️ Dinner — FIG</div>
+          <div class="res-badge">✓ Confirmed · 6:15 PM · 232 Meeting St · 3 min walk</div>
+          <div class="tl-desc">One of the most acclaimed restaurants in Charleston — Chef Mike Lata's farm-to-table cooking is seasonally driven and quietly spectacular. Refined pasta, local fish, charcuterie. Perfect first-night dinner to set the tone for the trip. Budget about 90 minutes so you're out by 7:45 and in position for kickoff.</div>
+          <div class="tl-tip">💡 Let the group know ahead of time — the goal is to be out the door by 7:45 PM to walk to the bar before the 8:00 PM kickoff.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot rust"></div>
+          <div class="tl-time">7:50 PM</div>
+          <div class="tl-title">⚽ Walk to Bay Street Biergarten</div>
+          <div class="tl-desc"><strong>Bay Street Biergarten</strong> (549 E. Bay St) is an 8-min walk from FIG and one of Charleston's confirmed World Cup watch-party venues — big screens, open-air beer hall, plenty of space for 6. Grab drinks and settle in just before kickoff.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot rust"></div>
+          <div class="tl-time">8:00 PM</div>
+          <div class="tl-title">🇺🇸 USA vs. Bosnia &amp; Herzegovina — Round of 32</div>
+          <div class="tl-desc">Kickoff on Fox. USMNT advanced as Group D winners and face Bosnia in a knockout elimination match at Levi's Stadium in Santa Clara. Charleston has two former Battery players on World Cup rosters this year — expect a lively local crowd. Enjoy it as a group.</div>
+          <div class="tl-tip">📺 On Fox at 8 PM ET. Match runs ~105 min standard time; allow for extra time/penalties possibility. Great way to end night one in Charleston.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ DAY 2 — THU JULY 2 ═══════════════════════ -->
+<div id="panel-day2" class="panel">
+  <div class="wrap">
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-date">Jul 2</div>
+        <div><div class="day-name">Thursday</div></div>
+        <div class="day-theme">History &amp; Harbour</div>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">9:00 AM</div>
+          <div class="tl-title">Harken Café — Breakfast</div>
+          <div class="tl-desc">5-min walk from the hotel. Butter Me Up biscuit: herbed cheese, egg soufflé, pickled shallots on ricotta biscuit. Relaxed morning — Fort Sumter is confirmed for tomorrow (Friday).</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">11:00 AM</div>
+          <div class="tl-title">Charleston City Market</div>
+          <div class="tl-desc">The Gullah Geechee sweetgrass basket weavers have worked this market for generations — this is the real thing, not a tourist trinket. Browse 200+ vendors. Spend time watching the weaving. Good spot for the group to split up and explore.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">1:30 PM</div>
+          <div class="tl-title">Lunch — The Ordinary</div>
+          <div class="tl-desc">Converted 1927 bank building, now an oyster bar. Boisterous and fun with great East Coast oysters and cocktails. Good spot for the whole group — the space is large and lively, no one feels rushed.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">3:30 PM</div>
+          <div class="tl-title">Nathaniel Russell House</div>
+          <div class="tl-desc">Federal-style mansion (c. 1808) with a legendary free-flying spiral staircase — one of the architectural wonders of American historic preservation. The gardens and interiors are equally beautiful. Allow 45–60 min.</div>
+          <div class="tl-tip">📸 The spiral staircase is a signature Lightroom shot. Go for a wide lens and look straight up.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">4:45 PM</div>
+          <div class="tl-title">Waterfront Park &amp; Pineapple Fountain</div>
+          <div class="tl-desc">Easy walk to the harbor. Swinging benches, water views, the iconic pineapple fountain. Low-key decompression before dinner.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">7:15 PM</div>
+          <div class="tl-title">🍽️ Dinner — Husk</div>
+          <div class="res-badge">✓ Confirmed · 8:15 PM · 76 Queen St · 4 min walk</div>
+          <div class="tl-desc">The restaurant that helped define New Southern cuisine — hyper-local sourcing, menu changes daily based on what's available from Southern farms. Beautiful restored antebellum home. Great for a group: the space is gracious and unhurried, and the menu rewards sharing and discussing.</div>
+          <div class="tl-tip">💡 Start with the cast iron cornbread and the charcuterie board. Order the whole fried fish if it's on the menu.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ DAY 3 — FRI JULY 3 ═══════════════════════ -->
+<div id="panel-day3" class="panel">
+  <div class="wrap">
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-date">Jul 3</div>
+        <div><div class="day-name">Friday</div></div>
+        <div class="day-theme">Nature &amp; North Charleston</div>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">8:30 AM</div>
+          <div class="tl-title">Holey City Bagels — Breakfast to Go</div>
+          <div class="tl-desc">Hand-rolled, water-boiled bagels to start the day. 43 Cannon St. Pre-order online to avoid the queue. Grab a half-dozen to take on the ferry.</div>
+          <div class="tl-tip">💡 Pre-order online before leaving the hotel — saves 20+ min for a group.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">9:00 AM</div>
+          <div class="tl-title">⚓ Head to Fort Sumter Visitor Center</div>
+          <div class="tl-desc">Walk or short rideshare to 340 Concord St. <strong>Arrive by 9:00 AM</strong> — boarding begins 15 min before departure. Go directly to the docking area — skip the ticket window, your booking is already paid and confirmed. QR code on your confirmation email is your ticket.</div>
+          <div class="tl-tip">🅿️ Parking if needed: SC Aquarium Garage, 24 Calhoun St (per your confirmation email).</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">9:30 AM – 11:45 AM</div>
+          <div class="tl-title">⛵ Fort Sumter Ferry Tour</div>
+          <div class="res-badge">✓ Confirmed · Booking #359236262 · 5 Adults · Paid $227.90</div>
+          <div class="tl-desc">Departs Liberty Square 9:30 AM sharp. The 30-min harbor crossing often yields dolphin sightings. About an hour on the island where the Civil War opened April 12, 1861. Return ferry back by ~11:45 AM. Snack bar and restrooms on board — cold beer and wine available on the return leg.</div>
+          <div class="tl-tip">📸 Bring your camera for harbor views from the water. Note: only one QR code scan needed per booking when boarding.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">12:30 PM</div>
+          <div class="tl-title">Angel Oak Tree — Johns Island</div>
+          <div class="tl-desc">Rideshare 20 min to Johns Island. A 400-year-old live oak, 65 ft high, 17,000 sq ft of shade. Free admission. One of the most spectacular natural objects in the Southeast.</div>
+          <div class="tl-tip">📸 Wide angle toward the canopy — group photo under the branches is a trip highlight.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">10:30 AM</div>
+          <div class="tl-title">Boone Hall Plantation</div>
+          <div class="tl-desc">The Avenue of Oaks approach is iconic. America's most-visited working plantation, continuously farmed for 750+ years. The Gullah Theater is the must-do portion — an honest, moving account of the people who actually built this place. Budget 2 hours minimum.</div>
+          <div class="tl-tip">☀️ Sunscreen and hats essential — the grounds are exposed and July in SC is genuinely intense.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">1:00 PM</div>
+          <div class="tl-title">Lunch — Shem Creek Boardwalk, Mount Pleasant</div>
+          <div class="tl-desc">On the way back from Boone Hall, stop at Shem Creek in Mount Pleasant — waterfront restaurants, shrimp boats, and frequent dolphin sightings. <strong>Tavern and Table</strong> is a solid pick: waterfront seating, good seafood. Fun Fact: Outer Banks was filmed here.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">3:00 PM</div>
+          <div class="tl-title">Folly Beach or Hotel Pool</div>
+          <div class="tl-desc">Two options: Drive another 25 min to Folly Beach for ocean swimming (the most accessible beach, good waves, casual scene) or return to the hotel and decompress at the pool. The group can split. July water temps are warm — genuinely refreshing after a hot plantation morning.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">6:00 PM</div>
+          <div class="tl-title">Party at the Point</div>
+          <div class="tl-desc">Pre-Fourth concert at Charleston Harbor Resort &amp; Marina, Mount Pleasant — live music, waterfront views, festive July 3 energy. Great way for the whole group to enjoy the evening before the Fourth.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">8:15 PM</div>
+          <div class="tl-title">🍽️ Dinner — Jackrabbit Filly</div>
+          <div class="res-badge">✓ Confirmed · 8:15 PM · 1083 E. Montague Ave, North Charleston</div>
+          <div class="tl-desc">Heritage-driven New Chinese-American cuisine in the heart of Park Circle — one of the most exciting restaurants in the Charleston area. James Beard-nominated chefs Corrie and Shuai Wang. Shareable plates make this perfect for a group of 6: dim sum carts, pork dumplings, clay pot rice, whole fried fish, inventive cocktails. Fun, lively, and completely unlike the other dinners on this trip.</div>
+          <div class="tl-tip">🚗 This is the one dinner requiring a ride — ~20 min, ~$25 each way per car. Free street parking on E. Montague if you have a rental. 8:15 PM reservation means you can leave Party at the Point around 7:30 and head straight there.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ DAY 4 — SAT JULY 4 ═══════════════════════ -->
+<div id="panel-day4" class="panel">
+  <div class="wrap">
+    <div class="day-card" style="border-color:var(--rust); border-width:2px;">
+      <div class="day-header">
+        <div class="day-date" style="color:var(--rust);">Jul 4</div>
+        <div><div class="day-name">Saturday</div></div>
+        <div class="day-theme" style="color:var(--rust);">Independence Day 🎆</div>
+      </div>
+
+      <div class="alert" style="margin-bottom:20px;">
+        ⚠️ <strong>Tonight matters for tomorrow:</strong> Breeze MX258 boards at 6:55 AM July 5. Leave hotel by 5:45 AM. Pre-book rideshare tonight. Bags staged. Multiple alarms. Keep the post-fireworks return early.
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">9:00 AM</div>
+          <div class="tl-title">Charleston Farmers Market — Marion Square</div>
+          <div class="tl-desc">Saturday market running April–November. Fresh produce, prepared foods, local crafts, live music. Perfect leisurely morning for the group — grab coffee, pick up local honey, boiled peanuts, or a bottle of Lowcountry hot sauce. 2 blocks from the hotel.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">11:00 AM</div>
+          <div class="tl-title">International African American Museum</div>
+          <div class="tl-desc">Opened in 2023 at Gadsden's Wharf — the very dock where tens of thousands of enslaved Africans first arrived in America. One of the most important cultural institutions opened in recent American history. Powerful, beautifully designed. Allow 2 hours.</div>
+          <div class="tl-tip">📚 Pre-book 6 timed entry tickets at iaamuseum.org before the trip — July 4th weekend sells out.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">1:30 PM</div>
+          <div class="tl-title">Lunch — 167 Raw or Poogan's Porch</div>
+          <div class="tl-desc"><strong>167 Raw</strong> (King St) — tiny, legendary oyster bar, she-crab soup, lobster roll, cash only, no reservations. <strong>Poogan's Porch</strong> (72 Queen St) — haunted Victorian, fried chicken, shrimp &amp; grits, easier for a group. Both are a short walk from the hotel.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">3:30 PM</div>
+          <div class="tl-title">Rest &amp; Recharge — Hotel Time</div>
+          <div class="tl-desc">Strategic rest before a big evening. Pool, nap, or downtime. July heat at this hour is peak intensity. This also buffers for tomorrow's 5:45 AM departure — anyone who wants a head start on packing should use this window.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-time">6:30 PM</div>
+          <div class="tl-title">🍽️ Dinner — High Cotton</div>
+          <div class="res-badge">✓ Confirmed · 6:30 PM · 199 E. Bay St · 8 min walk</div>
+          <div class="tl-desc">Southern cuisine and live music in a classic Charleston space. Great cocktails, deviled eggs, crab cakes, and a lively bar scene that perfectly captures the holiday spirit. The earlier 6:30 reservation is smart — positions you perfectly for fireworks by 8:30 PM with a full stomach.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot rust"></div>
+          <div class="tl-time">8:30 PM</div>
+          <div class="tl-title">July 4th Fireworks — 3 Options</div>
+          <div class="tl-desc">
+            <strong>Option A (Recommended) — Waterfront Park:</strong> 8-min walk from High Cotton, watch across the harbor, back at hotel by 9:30 PM. No driving, no surge pricing, no stress.<br><br>
+            <strong>Option B — Folly Beach:</strong> Drive 20 min for fireworks over the ocean. Classic beach scene. Harder to get a rideshare back — book in advance.<br><br>
+            <strong>Option C — Riverfront Park, N. Charleston:</strong> Annual festival with live music + fireworks show. More space, easier parking if you have a rental.
+          </div>
+          <div class="tl-tip">🎆 <strong>For this trip:</strong> Waterfront Park is the right call given the 5:45 AM departure. Back at the hotel by 9:30 PM, bags already staged, rideshare pre-booked for 5:40 AM. Everyone sleeps by 10:30.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot rust"></div>
+          <div class="tl-time">9:30–10:00 PM</div>
+          <div class="tl-title">⚠️ Pre-Departure Checklist</div>
+          <div class="tl-desc">Before bed: bags packed and staged at door (or in bell service storage), rideshare pre-booked for 5:40 AM, boarding passes downloaded, multiple alarms set for 4:45 AM. The flight home is nonstop — worth catching.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ DINING ═══════════════════════ -->
+<div id="panel-dining" class="panel">
+  <div class="wrap">
+    <div class="section-label">Your Confirmed Reservations</div>
+    <h2>Dining Guide</h2>
+
+    <div style="background:var(--teal-light); border:1px solid #9ecece; border-radius:10px; padding:18px 22px; margin-bottom:28px;">
+      <strong style="color:var(--teal); display:block; margin-bottom:10px;">✓ All 4 dinners confirmed for 6 people</strong>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:8px; font-size:13.5px;">
+        <div><strong>Wed</strong> · FIG · 6:15 PM · 232 Meeting St</div>
+        <div><strong>Thu</strong> · Husk · 8:15 PM · 76 Queen St</div>
+        <div><strong>Fri</strong> · Jackrabbit Filly · 8:15 PM · N. Charleston</div>
+        <div><strong>Sat</strong> · High Cotton · 6:30 PM · 199 E. Bay St</div>
+      </div>
+    </div>
+
+    <div class="section-label">Confirmed Dinners — Details</div>
+    <div class="dining-grid" style="margin-top:12px;">
+      <div class="dining-card confirmed">
+        <div class="dining-type">Lowcountry Farm-to-Table</div>
+        <div class="res-time">Wed Jul 1 · 6:15 PM · Confirmed ✓</div>
+        <h3>FIG</h3>
+        <p>One of Charleston's most enduring and acclaimed restaurants. Chef Mike Lata's cooking is seasonal, ingredient-obsessed, and quietly spectacular. The menu rotates constantly — expect refined pasta, local fish, charcuterie. A perfect first-night dinner.</p>
+        <div class="must-try">→ 232 Meeting St · 3 min walk from Mills House</div>
+      </div>
+      <div class="dining-card confirmed">
+        <div class="dining-type">New Southern · Iconic</div>
+        <div class="res-time">Thu Jul 2 · 8:15 PM · Confirmed ✓</div>
+        <h3>Husk</h3>
+        <p>The restaurant that put "New Southern" on the national map. Hyper-local sourcing, menu changes daily based on farm availability. Beautiful antebellum dining room. Great for a group — gracious, unhurried, rewarding conversation.</p>
+        <div class="must-try">→ Cast iron cornbread, charcuterie board, whole fried fish if available. 76 Queen St.</div>
+      </div>
+      <div class="dining-card confirmed">
+        <div class="dining-type">New Chinese-American · James Beard Nom</div>
+        <div class="res-time">Fri Jul 3 · 8:15 PM · Confirmed ✓</div>
+        <h3>Jackrabbit Filly</h3>
+        <p>Award-winning heritage-driven Chinese-American in Park Circle, North Charleston. Chefs Corrie and Shuai Wang. Dim sum carts, pork dumplings, clay pot rice, whole fried fish, inventive cocktails. Shareable plates — ideal for 6. Completely unlike the other three dinners.</p>
+        <div class="must-try">→ Pork dumplings, krab rangoon cheese ball, pierogis, whole fried fish. 1083 E. Montague, N. Charleston.</div>
+      </div>
+      <div class="dining-card confirmed">
+        <div class="dining-type">Southern · Live Music</div>
+        <div class="res-time">Sat Jul 4 · 6:30 PM · Confirmed ✓</div>
+        <h3>High Cotton</h3>
+        <p>Classic Charleston dining room with live music, deviled eggs, crab cakes, and a lively bar. The 6:30 PM reservation is perfect for July 4th — you're done and walking to fireworks by 8:30 PM.</p>
+        <div class="must-try">→ Deviled eggs, crab cakes, cocktails. 199 E. Bay St · 8 min walk from hotel.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:16px;">Breakfast &amp; Lunch — Explore These</div>
+    <div class="dining-grid" style="margin-top:12px;">
+      <div class="dining-card">
+        <div class="dining-type">Café · Bakery</div>
+        <h3>Harken Café</h3>
+        <p>Sweetest local bakery — perfect day 1 morning spot. Butter Me Up biscuit (herbed cheese, egg soufflé, pickled shallots on ricotta biscuit). Pastry display is dangerous.</p>
+        <div class="must-try">→ Butter Me Up biscuit, coffee</div>
+      </div>
+      <div class="dining-card">
+        <div class="dining-type">Bagels · Local Institution</div>
+        <h3>Holey City Bagels</h3>
+        <p>Hand-rolled, water-boiled. Order online to skip the queue. 43 Cannon St. Get a half-dozen to take on the Fort Sumter ferry.</p>
+        <div class="must-try">→ Jalapeño Cheddar + Sausage Egg &amp; Cheese. Pre-order online.</div>
+      </div>
+      <div class="dining-card">
+        <div class="dining-type">Oyster Bar · Landmark</div>
+        <h3>The Ordinary</h3>
+        <p>Converted 1927 bank, boisterous oyster bar. East Coast oysters, fish stews, excellent cocktails. Large enough for a group, lively atmosphere.</p>
+        <div class="must-try">→ East Coast oyster selection, fish stew, cocktails</div>
+      </div>
+      <div class="dining-card">
+        <div class="dining-type">Oyster Bar · Local Fave</div>
+        <h3>167 Raw</h3>
+        <p>Tiny King St institution. She-crab soup people plan trips around. Cash only, no reservations — go at an off hour or plan to wait. Worth every minute.</p>
+        <div class="must-try">→ She-crab soup, lobster roll. Cash only.</div>
+      </div>
+    </div>
+
+    <div style="background:var(--fog); border-radius:10px; padding:20px 24px;">
+      <h3 style="margin-bottom:10px;">🍤 Lowcountry Dishes to Try Before You Leave</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:12px; font-size:13.5px;">
+        <div><strong>Shrimp &amp; Grits</strong><br>Stone-ground grits, local shrimp, smoked sausage gravy. The dish Charleston is most known for.</div>
+        <div><strong>She-Crab Soup</strong><br>Rich bisque with blue crab roe — a Lowcountry original. 167 Raw makes the city's best.</div>
+        <div><strong>Lowcountry Oysters</strong><br>Smaller and brinier than Pacific. Get them raw at The Ordinary or roasted at Husk.</div>
+        <div><strong>Boiled Peanuts</strong><br>Soft, salty, addictive. Find them at the Saturday Farmers Market or any roadside stand.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ BUDGET ═══════════════════════ -->
+<div id="panel-budget" class="panel">
+  <div class="wrap">
+    <div class="section-label">Estimated Costs</div>
+    <h2>Budget Breakdown</h2>
+    <p style="margin-bottom:24px; color:var(--muted); font-size:14px;">6 travelers · 4 nights · Rideshare-based transportation. All four dinners are pre-booked. Flights and hotel already committed.</p>
+
+    <div class="card" style="overflow-x:auto;">
+      <table class="budget-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Item</th>
+            <th style="text-align:right;">Est. Cost</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>✈️ Flights</strong></td><td>Delta + Breeze (round trip)</td><td class="amount">Booked ✓</td><td>GUMLQH / T6FMTP</td></tr>
+          <tr><td><strong>🏨 Hotel</strong></td><td>Mills House — 4 nights</td><td class="amount">Booked ✓</td><td>Confirmation #3476396598</td></tr>
+          <tr><td><strong>🚗 Transport</strong></td><td>Airport transfers (2 cars × 2 trips)</td><td class="amount">~$140</td><td>~$35/car each way, 2 cars for 6 people</td></tr>
+          <tr><td></td><td>Angel Oak + Boone Hall day (2 cars)</td><td class="amount">~$100</td><td>Rideshare or 1-day rental — your call</td></tr>
+          <tr><td></td><td>Folly Beach (2 cars)</td><td class="amount">~$80</td><td>Optional — or skip in favor of hotel pool</td></tr>
+          <tr><td></td><td>Jackrabbit Filly Fri (2 cars × $25)</td><td class="amount">~$100</td><td>Only dinner requiring a ride</td></tr>
+          <tr><td></td><td>Misc rides / pedicabs</td><td class="amount">~$80</td><td>Evening pedicabs, party at the point, etc.</td></tr>
+          <tr><td><strong>🍽️ Dining</strong></td><td>Breakfasts — 4 days, 6 people</td><td class="amount">~$200</td><td>~$8–10/person at Harken, Holey City</td></tr>
+          <tr><td></td><td>Lunches — 4 days, 6 people</td><td class="amount">~$360</td><td>~$25–30/person; The Ordinary, 167 Raw, Shem Creek</td></tr>
+          <tr><td></td><td>FIG (Wed) — dinner for 6</td><td class="amount">~$420</td><td>~$60–70/person with wine</td></tr>
+          <tr><td></td><td>Husk (Thu) — dinner for 6</td><td class="amount">~$360</td><td>~$55–65/person with wine</td></tr>
+          <tr><td></td><td>Jackrabbit Filly (Fri) — dinner for 6</td><td class="amount">~$280</td><td>~$40–50/person, shareable plates</td></tr>
+          <tr><td></td><td>High Cotton (Sat) — dinner for 6</td><td class="amount">~$360</td><td>~$55–65/person with cocktails</td></tr>
+          <tr><td><strong>🎭 Activities</strong></td><td>Fort Sumter ferry (5 tickets)</td><td class="amount">$227.90 ✓</td><td>Paid · Booking #359236262 · Amex 3006 · Jul 3 9:30 AM</td></tr>
+          <tr><td></td><td>Boone Hall Plantation (6 tickets)</td><td class="amount">~$120</td><td>~$20/adult</td></tr>
+          <tr><td></td><td>Int'l African American Museum (6)</td><td class="amount">~$120</td><td>~$20/adult — timed entry, book online</td></tr>
+          <tr><td></td><td>Nathaniel Russell House (6)</td><td class="amount">~$72</td><td>~$12/adult</td></tr>
+          <tr><td></td><td>Angel Oak Tree</td><td class="amount">Free</td><td>No admission</td></tr>
+          <tr><td></td><td>Party at the Point (Jul 3)</td><td class="amount">~$60–120</td><td>Check event page for ticket prices</td></tr>
+          <tr><td><strong>🛍️ Misc</strong></td><td>Sweetgrass baskets, market, souvenirs</td><td class="amount">~$200</td><td>Authentic baskets $60–200+ at City Market</td></tr>
+        </tbody>
+        <tfoot>
+          <tr class="total">
+            <td colspan="2"><strong>Estimated Out-of-Pocket Total</strong></td>
+            <td class="amount"><strong>~$3,100–3,400</strong></td>
+            <td style="font-size:12px;">Ex. flights &amp; hotel (committed). Add $300–500 flex.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--muted); margin-top:14px;">* Estimate excludes retail shopping, wine beyond dinners, and any resort/spa charges at Mills House. Dinner estimates include 20% gratuity and modest wine. Budget at least $3,500 total out-of-pocket to be comfortable.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════ PACKING ═══════════════════════ -->
+<div id="panel-packing" class="panel">
+  <div class="wrap">
+    <div class="section-label">What to Bring</div>
+    <h2>Packing List</h2>
+    <p style="margin-bottom:24px; color:var(--muted); font-size:14px;">July in Charleston: 88–92°F highs, high humidity, afternoon thunderstorms almost daily. Pack breathable and light. Evening dining at FIG, Husk, and High Cotton is business casual — plan accordingly.</p>
+
+    <div class="pack-grid">
+      <div class="pack-card">
+        <h3>Clothing</h3>
+        <ul>
+          <li>Lightweight linen / moisture-wicking shirts (5–6)</li>
+          <li>Breathable shorts or chinos (3 pairs)</li>
+          <li>Business casual outfit for FIG / Husk (1–2)</li>
+          <li>Sundresses (Leslie, Stephanie)</li>
+          <li>Light layer for AC (restaurants are cold)</li>
+          <li>Swimsuit + cover-up</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h3>Footwear</h3>
+        <ul>
+          <li>Comfortable walking shoes (essential)</li>
+          <li>Sandals / flip flops for beach</li>
+          <li>Dressy shoes for nicer dinners</li>
+          <li>Water shoes for Shem Creek / kayak</li>
+          <li>Note: cobblestones — no heels</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h3>Sun &amp; Heat</h3>
+        <ul>
+          <li>SPF 50+ sunscreen (bring a full bottle)</li>
+          <li>Lightweight sun hat</li>
+          <li>Polarized sunglasses</li>
+          <li>Electrolyte packets (heat is real)</li>
+          <li>Reusable water bottle × 2</li>
+          <li>Small battery-powered misting fan</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h3>Photography</h3>
+        <ul>
+          <li>Camera body + extra battery</li>
+          <li>Wide angle lens (Rainbow Row, Angel Oak)</li>
+          <li>Polarizer filter for harbor shots</li>
+          <li>Phone tripod for group shots</li>
+          <li>Rain sleeve / waterproof bag</li>
+          <li>Extra SD cards</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h3>Practical</h3>
+        <ul>
+          <li>Small umbrella / packable rain jacket</li>
+          <li>Insect repellent (Boone Hall, evenings)</li>
+          <li>Portable charger × 2 (for the group)</li>
+          <li>Cash — 167 Raw is cash-only</li>
+          <li>Uber + Lyft apps installed</li>
+          <li>Small crossbody / day bag</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h3>Documents &amp; Tickets</h3>
+        <ul>
+          <li>Photo ID all 6 travelers</li>
+          <li>Delta Medallion card</li>
+          <li>Hilton Honors app / card</li>
+          <li>Fort Sumter tickets ✓ — QR code in confirmation email</li>
+          <li>IAAM tickets (book at iaamuseum.org)</li>
+          <li>All 4 dinner confirmations saved</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TIPS ═══════════════════════ -->
+<div id="panel-tips" class="panel">
+  <div class="wrap">
+    <div class="section-label">Insider Knowledge</div>
+    <h2>Local Tips &amp; Advice</h2>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">🌡️</div>
+        <strong>Work With the Heat</strong>
+        Active sightseeing 8–11 AM, air-conditioned lunch / downtime 1–4 PM, evenings back outside. The Battery and Waterfront Park are genuinely pleasant after 6 PM with the harbor breeze.
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🌧️</div>
+        <strong>Daily Afternoon Thunderstorms</strong>
+        Almost guaranteed in July — typically 30–45 min and then clear. Don't cancel plans, just duck into a bar or café. Part of the Charleston summer rhythm.
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🚌</div>
+        <strong>DASH Trolley — Free</strong>
+        Route 211 (Green) covers Meeting &amp; King, Waterfront Park to City Market. Runs 9 AM–8 PM Sat. Bus drivers are notably friendly and helpful with local tips.
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📱</div>
+        <strong>July 4th Rideshare Surge</strong>
+        Pre-book your return from fireworks before you leave for High Cotton dinner. Surge pricing on a holiday Saturday night near downtown fireworks can be significant. Lyft and Uber both allow scheduled rides.
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🧺</div>
+        <strong>Sweetgrass Baskets</strong>
+        The Gullah Geechee weavers at City Market practice an art form passed down for generations — genuine heirlooms, not souvenirs. Budget $60–200+ for a quality piece. Watching the weaving process is worth as much as the purchase.
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🍽️</div>
+        <strong>Group Dining Tip</strong>
+        For 6 people, confirm your party size when you arrive at each restaurant. FIG and Husk in particular move tables for large parties — arriving together and on time helps enormously. Jackrabbit Filly is best ordered family-style — let the server guide you on quantity.
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📸</div>
+        <strong>Best Photo Spots</strong>
+        Rainbow Row at midday, the Battery at dusk, Angel Oak early morning, Waterfront Park at golden hour, Nathaniel Russell spiral staircase, Boone Hall Avenue of Oaks at any time.
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">💤</div>
+        <strong>The July 5 Morning</strong>
+        Set 3 alarms (4:45, 5:00, 5:15 AM). Two cars for 6 people to CHS — pre-book both rideshares the night before. Bags staged at the door. 5:45 AM departure from hotel to make 6:55 AM boarding. Nonstop CVG — worth every bit of planning.
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Charleston Family Trip · July 1–5, 2026 · Steve, Leslie, Alexis, Chris, Grant &amp; Stephanie<br>
+  Delta GUMLQH · Breeze T6FMTP · Mills House #3476396598
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var buttons = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.panel');
+
+  function activateTab(id) {
+    panels.forEach(function(p) { p.style.display = 'none'; });
+    buttons.forEach(function(b) { b.classList.remove('active'); });
+    var panel = document.getElementById('panel-' + id);
+    if (panel) panel.style.display = 'block';
+    buttons.forEach(function(b) {
+      if (b.getAttribute('data-tab') === id) b.classList.add('active');
+    });
+    window.scrollTo(0, 0);
+  }
+
+  buttons.forEach(function(btn) {
+    var id = btn.getAttribute('data-tab');
+    ['click', 'touchend'].forEach(function(evt) {
+      btn.addEventListener(evt, function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        activateTab(id);
+      }, { passive: false });
+    });
+  });
+
+  // Show first tab on load
+  activateTab('logistics');
+});
+</script>
+</body>
+</html>
