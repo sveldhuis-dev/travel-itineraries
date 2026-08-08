@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chicago / Oak Brook Golf Trip — Aug 9–12, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#2a6b6b; --gold:#c8983a; --rust:#b84c2e; --moss:#4a6741;
+    --cream:#fdfaf4; --fog:#f5f0e8; --border:#ddd5c0; --muted:#7a6f5e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--cream);color:#2b2b26;font-family:'DM Sans',sans-serif;line-height:1.5;}
+  h1,h2,h3{font-family:'Playfair Display',serif;margin:0 0 8px;}
+  .mono{font-family:'DM Mono',monospace;}
+  .hero{background:var(--teal);color:#fff;padding:34px 20px 28px;}
+  .hero-eyebrow{font-family:'DM Mono',monospace;font-size:12.5px;letter-spacing:.04em;opacity:.85;margin-bottom:10px;}
+  .hero h1{font-size:30px;color:#fff;}
+  .hero-sub{margin-top:6px;font-size:15px;opacity:.92;}
+  .hero-travelers{margin-top:10px;font-size:13.5px;opacity:.85;}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:6px 12px;font-size:13px;}
+  .alert{background:var(--rust);color:#fff;padding:12px 20px;font-size:14px;}
+  .tab-nav{display:flex;overflow-x:auto;gap:6px;background:var(--fog);padding:10px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;-webkit-overflow-scrolling:touch;}
+  .tab-btn{flex:0 0 auto;background:#fff;border:1px solid var(--border);color:var(--muted);padding:8px 14px;border-radius:18px;font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:500;cursor:pointer;white-space:nowrap;}
+  .tab-btn.active{background:var(--teal);border-color:var(--teal);color:#fff;}
+  .wrap{max-width:880px;margin:0 auto;padding:22px 18px 60px;}
+  .panel{display:none;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:16px;}
+  .card.confirmed{border-color:var(--moss);border-width:2px;}
+  .card-label{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:640px){.grid-2{grid-template-columns:1fr;}}
+  .traveler-pill{display:inline-block;background:var(--fog);border:1px solid var(--border);border-radius:20px;padding:6px 14px;margin:3px 4px 3px 0;font-size:13.5px;}
+  .role{color:var(--muted);font-size:11.5px;margin-left:4px;}
+  .tl-item{position:relative;padding-left:26px;padding-bottom:20px;border-left:2px solid var(--border);margin-left:6px;}
+  .tl-item:last-child{border-left:2px solid transparent;padding-bottom:0;}
+  .tl-dot{position:absolute;left:-7px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid var(--cream);}
+  .tl-dot.gold{background:var(--gold);}
+  .tl-dot.rust{background:var(--rust);}
+  .tl-dot.moss{background:var(--moss);}
+  .tl-time{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--muted);margin-bottom:2px;}
+  .tl-title{font-weight:700;font-size:15.5px;margin-bottom:3px;}
+  .res-badge{display:inline-block;background:rgba(74,103,65,.1);color:var(--moss);border:1px solid var(--moss);border-radius:6px;padding:3px 8px;font-size:12px;font-family:'DM Mono',monospace;margin-bottom:6px;}
+  .tl-desc{font-size:14px;color:#3a352c;margin-bottom:4px;}
+  .tl-tip{font-size:13px;color:var(--muted);background:var(--fog);border-radius:8px;padding:8px 10px;margin-top:6px;}
+  .day-summary{font-size:13.5px;color:var(--muted);margin-bottom:16px;}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--border);}
+  th{font-family:'DM Mono',monospace;font-size:11.5px;text-transform:uppercase;color:var(--muted);letter-spacing:.04em;}
+  tfoot td{font-weight:700;border-top:2px solid var(--teal);border-bottom:none;}
+  .pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:640px){.pack-grid{grid-template-columns:1fr;}}
+  .pack-card h3{font-size:15px;margin-bottom:8px;}
+  .pack-card ul{margin:0;padding-left:18px;font-size:13.5px;}
+  .pack-card li{margin-bottom:4px;}
+  .tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:640px){.tips-grid{grid-template-columns:1fr;}}
+  .tip-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:13.5px;}
+  .tip-card .emoji{font-size:20px;margin-bottom:6px;display:block;}
+  .flag{background:rgba(184,76,46,.08);border:1px solid var(--rust);color:#7a3620;border-radius:8px;padding:8px 10px;font-size:13px;margin-top:8px;}
+  a{color:var(--teal);}
+  .section-title{margin:22px 0 10px;font-size:19px;}
+  .section-title:first-child{margin-top:0;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">HILTON CONF #3519500241 · BUTTERFIELD CC · IN IT TO END IT GOLF OUTING</div>
+  <h1 style="display:flex;align-items:center;gap:12px;">
+    <svg width="34" height="34" viewBox="0 0 48 48" style="flex:0 0 auto;">
+      <circle cx="24" cy="40" r="5" fill="#fff" opacity="0.9"/>
+      <rect x="23" y="8" width="2" height="32" fill="#fff"/>
+      <path d="M25 8 L41 13 L25 18 Z" fill="var(--gold)"/>
+    </svg>
+    Chicago / Oak Brook Golf Trip
+  </h1>
+  <div class="hero-sub">Sunday, Aug 9 – Wednesday, Aug 12, 2026 · Hilton Chicago/Oak Brook Hills Resort &amp; Conference Center</div>
+  <div class="hero-travelers">Steve Veldhuis · with Dan Kelley, Bill Rutherford, John Gallina, Jim Wong, Dom Ruccolo, Brad Seaman &amp; Tom Partridge</div>
+  <div class="hero-chips">
+    <div class="chip">⛳ 4 rounds of golf in 4 days</div>
+    <div class="chip">🎗️ Alzheimer's Assoc. charity outing — Mon</div>
+    <div class="chip">🏨 3 nights · King Corner Room</div>
+    <div class="chip">🍽️ 3 group dinners booked</div>
+  </div>
+</div>
+
+<div class="alert">⚠️ <strong>Leave Cincinnati by ~7:00 AM ET Sunday:</strong> ~302 miles / ~4h45m drive, and Oak Brook is 1 hour behind Cincinnati (Central vs. Eastern) — that gains you an hour on the clock. Departing by 7:00–7:15 AM gets you to Butterfield by ~11:00 AM Central, an hour ahead of the noon meetup.</div>
+  <div class="alert" style="background:var(--moss);">✓ <strong>Monday timing resolved:</strong> Registration at 11:00 AM is confirmed by both the Alzheimer's Association event email and Jim Wong's summary. For the round start, go with the Association's detailed schedule — announcements at 12:40 PM, round begins 1:00 PM — since it's the event organizer's own itinerary. Jim's "shotgun at noon" note is likely shorthand; worth a quick confirm with him, but plan on 1:00 PM.</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" data-tab="logistics">Logistics</button>
+  <button class="tab-btn" data-tab="day1">Sun Aug 9</button>
+  <button class="tab-btn" data-tab="day2">Mon Aug 10</button>
+  <button class="tab-btn" data-tab="day3">Tue Aug 11</button>
+  <button class="tab-btn" data-tab="day4">Wed Aug 12</button>
+  <button class="tab-btn" data-tab="dining">Dining &amp; Dress</button>
+  <button class="tab-btn" data-tab="budget">Budget</button>
+  <button class="tab-btn" data-tab="packing">Packing</button>
+  <button class="tab-btn" data-tab="tips">Local Tips</button>
+</div>
+
+<div class="wrap">
+
+  <!-- LOGISTICS -->
+  <div class="panel" id="panel-logistics">
+    <h2 class="section-title">Who's going</h2>
+    <div>
+      <span class="traveler-pill">🏌️ Steve Veldhuis <span class="role">You</span></span>
+      <span class="traveler-pill">🏌️ Dan Kelley</span>
+      <span class="traveler-pill">🏌️ Bill Rutherford</span>
+      <span class="traveler-pill">🏌️ John Gallina</span>
+      <span class="traveler-pill">🏌️ Jim Wong <span class="role">Organizer</span></span>
+      <span class="traveler-pill">🏌️ Dom Ruccolo</span>
+      <span class="traveler-pill">🏌️ Brad Seaman</span>
+      <span class="traveler-pill">🏌️ Tom Partridge</span>
+    </div>
+
+    <h2 class="section-title">Hotel</h2>
+    <div class="card confirmed">
+      <div class="card-label">Confirmed ✓ — Confirmation #3519500241</div>
+      <div style="font-weight:700;font-size:16px;">Hilton Chicago/Oak Brook Hills Resort &amp; Conference Center</div>
+      <div style="font-size:14px;margin:4px 0;">3500 Midwest Road, Oak Brook, IL 60523 · <span class="mono">(630) 850-5555</span></div>
+      <div class="grid-2" style="margin-top:10px;">
+        <div>
+          <div class="card-label">Check-in</div>
+          <div>Sunday, Aug 9 — 4:00 PM</div>
+        </div>
+        <div>
+          <div class="card-label">Check-out</div>
+          <div>Wednesday, Aug 12 — 12:00 PM</div>
+        </div>
+      </div>
+      <div style="margin-top:10px;font-size:14px;">Room: <strong>1 King Bed Corner Room</strong> · 1 Adult · Honors Nonrefundable rate</div>
+      <div style="margin-top:8px;font-size:14px;">Total for stay: <strong>$757.39</strong> ($637.48 room + $75.06 tax + $44.85 resort fee)</div>
+      <div class="flag">This rate is non-refundable, non-changeable. A hold may be placed on your card at check-in covering the full stay plus estimated incidentals.</div>
+      <div class="flag">Checkout (Wed, 12:00 PM) overlaps with your 11:30/11:45 AM Medinah tee times — pack and settle your bill Wednesday morning before heading to the course, or call the hotel to ask about a late checkout / bag storage.</div>
+    </div>
+
+    <h2 class="section-title">Getting there</h2>
+    <div class="card">
+      <div class="card-label">No flight or rental car confirmation found in your inbox</div>
+      <div style="font-size:14px;">The hotel confirmation went to your Cincinnati address (sveldhuis@cinci.rr.com), so this looks like a drive-up trip. Bill Rutherford is flying in and lands around 10:00 AM Sunday, in time for the noon meetup at Butterfield.</div>
+    </div>
+    <div class="card confirmed">
+      <div class="card-label">Drive-time math — Cincinnati → Butterfield CC</div>
+      <div style="font-size:14px;">~302 miles, roughly <strong>4h45m–5h</strong> of driving (estimate, no live traffic). Oak Brook is on Central Time, one hour behind Cincinnati's Eastern Time — so every mile west also buys back a clock-hour.</div>
+      <table style="margin-top:10px;">
+        <thead><tr><th>Depart Cincinnati (ET)</th><th>Arrive Butterfield (CT)</th><th>Buffer before Noon meetup</th></tr></thead>
+        <tbody>
+          <tr><td>7:00 AM</td><td>~11:00–11:15 AM</td><td>~45 min–1 hr</td></tr>
+          <tr><td>7:15 AM</td><td>~11:15–11:30 AM</td><td>~30–45 min</td></tr>
+        </tbody>
+      </table>
+      <div class="tl-tip" style="margin-top:10px;">💡 To land at Butterfield by 11:00 AM local (an hour ahead of the noon meetup), plan to leave Cincinnati by <strong>7:00–7:15 AM Eastern</strong>. Build in extra cushion for a gas/bathroom stop — these are unofficial estimates, not live directions.</div>
+    </div>
+
+    <h2 class="section-title">Golf course locations</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div style="font-weight:700;">Butterfield Country Club</div>
+        <div style="font-size:13.5px;">2800 Midwest Rd, Oak Brook, IL 60523</div>
+        <div style="font-size:13px;color:var(--muted);">Sun practice round + Mon charity outing</div>
+      </div>
+      <div class="card">
+        <div style="font-weight:700;">Butler National Golf Club</div>
+        <div style="font-size:13.5px;">Oak Brook, IL</div>
+        <div style="font-size:13px;color:var(--muted);">Tue — private club, exact address in caddie confirmation</div>
+      </div>
+      <div class="card">
+        <div style="font-weight:700;">Medinah Country Club — Course #3</div>
+        <div style="font-size:13.5px;">6N001 Medinah Rd, Medinah, IL</div>
+        <div style="font-size:13px;color:var(--muted);">Wed — ~25 min from Oak Brook</div>
+      </div>
+      <div class="card">
+        <div style="font-weight:700;">Gibsons Bar &amp; Steakhouse</div>
+        <div style="font-size:13.5px;">2105 Spring Rd, Oak Brook, IL 60523</div>
+        <div style="font-size:13px;color:var(--muted);">Mon dinner, 7:15 PM</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Confirmed reservations at a glance</h2>
+    <div class="card confirmed">
+      <div class="card-label">Sun Aug 9</div>
+      <div style="font-weight:700;">Cocktails, Apps &amp; Dinner — Butterfield CC</div>
+      <div style="font-size:13.5px;color:var(--moss);">Confirmed ✓ · Evening, exact time TBD · Jim Wong hosting</div>
+    </div>
+    <div class="card confirmed">
+      <div class="card-label">Mon Aug 10</div>
+      <div style="font-weight:700;">Dinner — Gibsons Bar &amp; Steakhouse</div>
+      <div style="font-size:13.5px;color:var(--moss);">Confirmed ✓ · 7:15 PM · 2105 Spring Rd, Oak Brook</div>
+    </div>
+    <div class="card confirmed">
+      <div class="card-label">Tue Aug 11</div>
+      <div style="font-weight:700;">Dinner — Lucca Osteria &amp; Bar</div>
+      <div style="font-size:13.5px;color:var(--moss);">Confirmed ✓ · 6:00 PM · 1415 W 22nd St, Oak Brook</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Wed Aug 12</div>
+      <div style="font-weight:700;">Cocktails/Apps/Dinner — Medinah Clubhouse</div>
+      <div style="font-size:13.5px;color:var(--rust);">You're skipping this — heading straight home ~4:30 PM, arriving Cincinnati ~10:30–11:30 PM ET</div>
+    </div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="panel" id="panel-day1">
+    <h2>Sunday, August 9</h2>
+    <div class="day-summary">Drive up from Cincinnati + informal practice round (with its own team match play game) at Butterfield with the full crew.</div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-time">~7:00–7:15 AM ET</div>
+      <div class="tl-title">🚗 Leave Cincinnati</div>
+      <div class="tl-desc">~302 miles, ~4h45m–5h drive. Oak Brook runs on Central Time (1 hr behind Cincinnati), so the time-zone change works in your favor on the way there.</div>
+      <div class="tl-tip">💡 Departing by 7:00–7:15 AM ET should land you at Butterfield by ~11:00–11:15 AM Central — roughly an hour ahead of the noon meetup. Build in a stop for gas/food.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot moss"></div>
+      <div class="tl-time">Noon</div>
+      <div class="tl-title">🏌️ Meet at Butterfield Country Club</div>
+      <div class="tl-desc">2800 Midwest Rd, Oak Brook. Lockers available for changing/showering. Players: Dan Kelley, Steve, Dom Ruccolo, Brad Seaman, Bill Rutherford, Tom Partridge, Phil Gutman (filling in for John Gallina), and Jim Wong.</div>
+      <div class="tl-tip">💡 No jackets required per Jim Wong's confirmation to Bill Rutherford — casual/golf attire is fine.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-time">Round</div>
+      <div class="tl-title">🎯 The "Sunday Game" — team &amp; individual match play</div>
+      <div class="tl-desc">Set by Jim Wong with the Head Pro's help, scored via Golf Genius (handicap strokes pre-loaded).<br><br>
+      <strong>Team Match Play</strong> (2-Man Better Ball Nassau): each 2-man team plays the other for 3 points — 1 for front 9, 1 for back 9, 1 for overall 18 (½ point if a segment ties). 2 team matches = 6 points available.<br><br>
+      <strong>Individual Match Play</strong> (Nassau), same structure, run alongside the team match: 4 individual matches = 12 points available.<br><br>
+      <strong>18 points total; first team to 9½ wins the day.</strong><br><br>
+      <strong>Team #1:</strong> Wong, Kelley, Rutherford, Seaman &nbsp;|&nbsp; <strong>Team #2:</strong> Gutman, Ruccolo, Veldhuis, Partridge<br>
+      <strong>Foursome #1 —</strong> Team match: Wong/Kelley vs. Veldhuis/Partridge. Individual: Wong vs. Partridge, Kelley vs. <u>Veldhuis</u>.<br>
+      <strong>Foursome #2 —</strong> Team match: Rutherford/Seaman vs. Gutman/Ruccolo. Individual: Rutherford vs. Gutman, Seaman vs. Ruccolo.</div>
+      <div class="tl-tip">💡 You're on Team #2 with Gutman, Ruccolo, and Partridge, in Foursome #1 — your individual match is against Dan Kelley.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-time">Afternoon</div>
+      <div class="tl-title">🏨 Hotel check-in</div>
+      <div class="tl-desc">Hilton Chicago/Oak Brook Hills Resort, official check-in is 4:00 PM. Since golf starts at noon, you may want to check in before heading to Butterfield, or drop bags with the bell desk and check in after your round.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-time">Evening</div>
+      <div class="tl-title">🍸 Cocktails, Appetizers &amp; Dinner — Butterfield CC</div>
+      <div class="res-badge">✓ Confirmed · Reservation at the club · Jim Wong covering the tab</div>
+      <div class="tl-desc">Exact time wasn't specified in the group email — plan to wind down from golf and head to the clubhouse for the evening.</div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="panel" id="panel-day2">
+    <h2>Monday, August 10</h2>
+    <div class="day-summary">6th Annual "In It to End It" Golf Outing — Alzheimer's Association Illinois Chapter charity event at Butterfield Country Club.</div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-time">11:00 AM</div>
+      <div class="tl-title">📝 Registration opens + lunch</div>
+      <div class="tl-desc">Drop clubs at bag drop, park, register at the Pro Shop table. Buy the "All-In-One" ticket — includes the putting contest, wine/liquor raffle, $5,000 Gold Rush game, and three mulligans. Buffet lunch and beverages in the Pub.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot rust"></div>
+      <div class="tl-time">12:40 PM</div>
+      <div class="tl-title">📣 Event &amp; golf announcements</div>
+      <div class="tl-desc">Per the official Alzheimer's Association event email.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-time">1:00 PM</div>
+      <div class="tl-title">⛳ Round starts — 2-Net Best Ball, Kelley Group</div>
+      <div class="tl-desc">Your foursome: Dan Kelley, Steve Veldhuis, Bill Rutherford, John Gallina, playing 2-Net Best Ball. Your handicap index: 11.1 (2 higher than John's, 4 higher than Jim's, per your July emails). Wong Group (Dom, Brad, Phil Tauscher, Jim) and the Partridge Group play their own foursomes. Forecaddies are pre-paid — tipping encouraged but not required.</div>
+      <div class="tl-tip">💡 <strong>Resolved:</strong> registration at 11:00 AM is confirmed by both the Alzheimer's Association event email and Jim Wong's summary. The 1:00 PM start comes from the Association's detailed itinerary (announcements at 12:40 PM lead straight into it) — treat that as the authoritative time over Jim's "noon shotgun" shorthand, but a quick text to confirm won't hurt.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-time">After round</div>
+      <div class="tl-title">🏆 Reception &amp; prize announcements</div>
+      <div class="tl-desc">Scorecards back to the clubhouse; winners of scramble/best ball/contests, auction, and raffle announced. Beverages and passed apps served. Silent auction (golf at Chicago Golf Club, Medinah #3, Shoreacres, Beverly CC, plus Cubs/Bulls/LSU tickets) is open online now if you want to bid ahead of time.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot moss"></div>
+      <div class="tl-time">7:15 PM</div>
+      <div class="tl-title">🥩 Dinner — Gibsons Bar &amp; Steakhouse</div>
+      <div class="res-badge">✓ Confirmed · 7:15 PM · 2105 Spring Rd, Oak Brook</div>
+      <div class="tl-desc">No formal dress code, but Gibsons doesn't allow sleeveless shirts on men. Smart casual is the norm for the room.</div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="panel" id="panel-day3">
+    <h2>Tuesday, August 11</h2>
+    <div class="day-summary">Butler National Golf Club — early tee times, caddies required.</div>
+
+    <div class="tl-item">
+      <div class="tl-dot rust"></div>
+      <div class="tl-time">8:30 AM &amp; 8:40 AM</div>
+      <div class="tl-title">⛳ Tee times — Butler National</div>
+      <div class="tl-desc">Full group: Dan, Steve, John, Dom, Brad, Bill, Tom, and Jim, split across the two tee times.</div>
+      <div class="tl-tip">💡 Bring cash. Greens fees are $450/person and caddie fees are $150/person — caddie fees are cash only. Green fees are otherwise being charged back to Jim Wong at Butterfield.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot moss"></div>
+      <div class="tl-time">6:00 PM</div>
+      <div class="tl-title">🍝 Dinner — Lucca Osteria &amp; Bar</div>
+      <div class="res-badge">✓ Confirmed · 6:00 PM · 1415 W 22nd St, Oak Brook</div>
+      <div class="tl-desc">Rustic northern Italian — antipasti, pasta, pizza, seafood. Popular picks: pappardelle bolognese, burrata/prosciutto, branzino al forno.</div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="panel" id="panel-day4">
+    <h2>Wednesday, August 12</h2>
+    <div class="day-summary">Medinah Country Club, Course #3 — then straight home to Cincinnati.</div>
+
+    <div class="flag">⚠️ Hotel checkout is 12:00 PM, but your tee time is 11:30/11:45 AM. Settle your bill and load the car before you leave for Medinah (about 25 min away) so you're not racing back for checkout.</div>
+
+    <div class="tl-item">
+      <div class="tl-dot rust"></div>
+      <div class="tl-time">11:30 AM &amp; 11:45 AM</div>
+      <div class="tl-title">⛳ Tee times — Medinah Course #3</div>
+      <div class="tl-desc">6N001 Medinah Road, Medinah, IL. Group: Dan, Steve, John, Dom, Bill, Tom, Joey C (Tom's Medinah friend), and Jim, across the two tee times.</div>
+      <div class="tl-tip">💡 18 holes for a foursome typically runs 4–4.5 hrs — your 11:30 AM tee time should wrap up around 4:00–4:15 PM Central.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-time">~4:30–4:45 PM CT</div>
+      <div class="tl-title">🚗 You head straight home — skipping the clubhouse dinner</div>
+      <div class="tl-desc">Quick shower/change and load the car (~20–30 min), then straight to Cincinnati. The Medinah cocktails/apps/dinner is still on for whoever's staying (Tommy hosting) — just not you this time.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot rust"></div>
+      <div class="tl-time">Arrive Cincinnati ~10:30–11:30 PM ET</div>
+      <div class="tl-title">🏠 Drive home — Medinah to Cincinnati</div>
+      <div class="tl-desc">~310–320 miles, roughly 5–5.5 hrs of driving (estimate, no live traffic). This time the zone change works against you — Central to Eastern costs you the hour back that you gained on the way out.</div>
+      <div class="flag">⚠️ This is a long day: golf finishes ~4:00 PM, then 5+ hours on the road. If you leave Medinah by 4:30–4:45 PM CT, plan on rolling into Cincinnati somewhere around 10:30–11:30 PM ET. Grab dinner or a solid stop along the way (e.g., Indianapolis, roughly the halfway point) rather than pushing straight through.</div>
+    </div>
+  </div>
+
+  <!-- DINING -->
+  <div class="panel" id="panel-dining">
+    <h2 class="section-title">Confirmed dinners</h2>
+
+    <div class="card confirmed">
+      <div class="card-label">Sun Aug 9 — evening</div>
+      <div style="font-weight:700;font-size:15.5px;">Butterfield Country Club (clubhouse)</div>
+      <div style="font-size:13.5px;color:var(--moss);">Confirmed ✓ · Time TBD · 2800 Midwest Rd, Oak Brook</div>
+      <div style="font-size:14px;margin-top:6px;">Dress: no jackets required per email thread.</div>
+    </div>
+
+    <div class="card confirmed">
+      <div class="card-label">Mon Aug 10 — 7:15 PM</div>
+      <div style="font-weight:700;font-size:15.5px;">Gibsons Bar &amp; Steakhouse</div>
+      <div style="font-size:13.5px;color:var(--moss);">Confirmed ✓ · 2105 Spring Rd, Oak Brook · (630) 954-0000</div>
+      <div style="font-size:14px;margin-top:6px;">Dress: no formal dress code — men just can't wear sleeveless shirts. Smart casual fits the room.</div>
+    </div>
+
+    <div class="card confirmed">
+      <div class="card-label">Tue Aug 11 — 6:00 PM</div>
+      <div style="font-weight:700;font-size:15.5px;">Lucca Osteria &amp; Bar</div>
+      <div style="font-size:13.5px;color:var(--moss);">Confirmed ✓ · 1415 W 22nd St, Oak Brook</div>
+      <div style="font-size:14px;margin-top:6px;">Northern Italian, relaxed dining room and bar. Dress: casual to smart casual — no stated dress code.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Wed Aug 12 — after golf</div>
+      <div style="font-weight:700;font-size:15.5px;">Medinah Country Club clubhouse</div>
+      <div style="font-size:13.5px;color:var(--rust);">Skipping — driving home instead, ~4:30 PM CT departure</div>
+      <div style="font-size:14px;margin-top:6px;">Still on for the group (Tommy hosting) if plans change.</div>
+    </div>
+
+    <h2 class="section-title">Golf dress codes (confirmed, per event/club rules)</h2>
+    <div class="card">
+      <div style="font-weight:700;">Mon 10 — Butterfield / Alzheimer's Outing (strict)</div>
+      <div style="font-size:14px;margin-top:4px;">Men: collared golf shirt required, no tee shirts, shirt tucked in, hats/visors worn correctly, no denim or cutoff shorts, no metal spikes.<br>Women: shirts designed to be untucked are fine; golf skirts/shorts appropriate; no metal spikes.</div>
+    </div>
+    <div class="card">
+      <div style="font-weight:700;">Tue 11 &amp; Wed 12 — Butler National / Medinah</div>
+      <div style="font-size:14px;margin-top:4px;">No specific dress code was in the email chain, but both are private clubs — assume standard private-club rules: collared shirt, no denim, soft spikes only. Worth a quick call to each pro shop if you want to confirm.</div>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div class="panel" id="panel-budget">
+    <h2 class="section-title">What's confirmed / known</h2>
+    <table>
+      <thead><tr><th>Item</th><th>Detail</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Hotel (3 nights)</td><td>Hilton Oak Brook Hills, King Corner Room</td><td>Booked ✓ · $757.39</td></tr>
+        <tr><td>Alzheimer's outing foursome</td><td>$4,000 per foursome, paid by Dan Kelley — reimburse him</td><td>Booked ✓</td></tr>
+        <tr><td>Butler National greens fee</td><td>Per person, Tue Aug 11</td><td>$450</td></tr>
+        <tr><td>Butler National caddie fee</td><td>Per person, cash only</td><td>$150</td></tr>
+        <tr><td>Medinah greens/caddie</td><td>Not specified in emails — confirm with Jim</td><td>TBD</td></tr>
+        <tr><td>Dinners (Gibsons, Lucca, club dinners)</td><td>Splitting likely — confirm with group</td><td>TBD</td></tr>
+        <tr><td>Side-game wagers</td><td>Handicap-based bets among the foursome — bring cash</td><td>TBD</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="2">Confirmed/known so far</td><td>$1,357.39 + reimbursement to Dan</td></tr>
+      </tfoot>
+    </table>
+    <div class="flag">Bring cash for Tuesday's caddie fees and any side-game settling — several emails reference "bring cash."</div>
+  </div>
+
+  <!-- PACKING -->
+  <div class="panel" id="panel-packing">
+    <h2 class="section-title">Packing list</h2>
+    <div class="pack-grid">
+      <div class="pack-card card">
+        <h3>Golf attire</h3>
+        <ul>
+          <li>Collared golf shirts (tucked-in style) — at least 4</li>
+          <li>Golf shorts/pants, no denim</li>
+          <li>Golf shoes with soft spikes (no metal spikes anywhere on this trip)</li>
+          <li>Hat/visor</li>
+          <li>Belt</li>
+          <li>Rain layer / light windbreaker in case of August storms</li>
+        </ul>
+      </div>
+      <div class="pack-card card">
+        <h3>Evening / dinner</h3>
+        <ul>
+          <li>Smart-casual outfit for Gibsons, Lucca and the clubhouses (collared shirt, no jeans is the safe default)</li>
+          <li>Comfortable dress shoes</li>
+        </ul>
+      </div>
+      <div class="pack-card card">
+        <h3>Golf gear</h3>
+        <ul>
+          <li>Clubs, glove, tees, extra balls (Butler and Medinah are championship courses — bring your A-game)</li>
+          <li>Handicap/GHIN card — index 11.1</li>
+          <li>Sunscreen, sunglasses</li>
+        </ul>
+      </div>
+      <div class="pack-card card">
+        <h3>Practical / cash</h3>
+        <ul>
+          <li>Cash for Butler caddie fees ($150) and any side bets</li>
+          <li>Cash/Venmo for reimbursing Dan Kelley (Alzheimer's foursome) and Jim Wong (green fees)</li>
+          <li>Phone charger, sunglasses, refillable water bottle</li>
+        </ul>
+      </div>
+      <div class="pack-card card">
+        <h3>Documents</h3>
+        <ul>
+          <li>Hotel confirmation #3519500241</li>
+          <li>ID / credit card for hotel incidentals hold</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="panel" id="panel-tips">
+    <h2 class="section-title">Local tips</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><span class="emoji">⛳</span><strong>Monday's start time.</strong> Plan on 1:00 PM (per the Alzheimer's Association's detailed schedule) rather than the "noon shotgun" in Jim's recap — a quick text to Jim or Steve Jastrow (sbjastrow@alz.org) before you leave the hotel will confirm it.</div>
+      <div class="tip-card"><span class="emoji">🎒</span><strong>Wednesday is tight.</strong> Checkout is noon, tee time is 11:30/11:45 AM at Medinah, ~25 min from the hotel. Pack the car and check out before you head to golf.</div>
+      <div class="tip-card"><span class="emoji">💵</span><strong>Cash matters this trip.</strong> Caddie fees, side games, and reimbursements to Dan and Jim all came up as cash/Venmo items — stock up before Sunday.</div>
+      <div class="tip-card"><span class="emoji">🌩️</span><strong>August in Oak Brook</strong> typically runs warm and humid with a decent chance of afternoon thunderstorms — pack a rain layer for the course.</div>
+      <div class="tip-card"><span class="emoji">🏆</span><strong>Bid early.</strong> The Alzheimer's outing's silent auction (golf at Chicago Golf Club, Medinah #3, Shoreacres, Beverly CC, Cubs/Bulls/LSU tickets) is open online now — worth a look before Monday.</div>
+      <div class="tip-card"><span class="emoji">🥩</span><strong>Gibsons Oak Brook</strong> is open 11 AM–11 PM daily if plans shift and you need a backup reservation window.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var buttons = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.panel');
+
+  function activateTab(id) {
+    panels.forEach(function(p) { p.style.display = 'none'; });
+    buttons.forEach(function(b) { b.classList.remove('active'); });
+    var panel = document.getElementById('panel-' + id);
+    if (panel) panel.style.display = 'block';
+    buttons.forEach(function(b) {
+      if (b.getAttribute('data-tab') === id) b.classList.add('active');
+    });
+    window.scrollTo(0, 0);
+  }
+
+  buttons.forEach(function(btn) {
+    var id = btn.getAttribute('data-tab');
+    ['click', 'touchend'].forEach(function(evt) {
+      btn.addEventListener(evt, function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        activateTab(id);
+      }, { passive: false });
+    });
+  });
+
+  activateTab('logistics');
+});
+</script>
+
+</body>
+</html>
