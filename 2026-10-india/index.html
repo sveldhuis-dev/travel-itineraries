@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India · Rathi Group · October–November 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1612;--fog:#f5f0e8;--cream:#fdfaf4;--teal:#2a6b6b;--teal-light:#e8f4f4;--gold:#c8983a;--gold-pale:#faf3e0;--rust:#b84c2e;--rust-pale:#fdf0ec;--moss:#4a6741;--border:#ddd5c0;--muted:#7a6f5e}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:14px;line-height:1.65}
+  .hero{background:linear-gradient(135deg,#8a2e1f 0%,#c8983a 55%,#8a2e1f 100%);color:#fff;padding:48px 24px 36px;text-align:center;position:relative;overflow:hidden}
+  .hero-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:8px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:700;line-height:1.1;margin-bottom:6px}
+  .hero-sub{font-size:14px;color:rgba(255,255,255,.85);margin-bottom:6px}
+  .hero-travelers{font-size:11px;color:rgba(255,255,255,.7);margin-bottom:22px;font-family:'DM Mono',monospace}
+  .hero-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .chip{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:4px 12px;border-radius:100px;font-size:11px;font-weight:500}
+  .alert{background:var(--rust-pale);border-left:4px solid var(--rust);padding:10px 16px;font-size:12.5px;margin:12px 16px 0;border-radius:0 6px 6px 0}
+  .alert strong{color:var(--rust)}
+  .info-alert{background:var(--gold-pale);border-left:4px solid var(--gold);padding:10px 16px;font-size:12.5px;margin:12px 16px 0;border-radius:0 6px 6px 0}
+  .info-alert strong{color:#7a5c10}
+  .tab-nav{background:var(--fog);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .tab-nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 12px}
+  .tab-nav-inner::-webkit-scrollbar{display:none}
+  .tab-btn{padding:11px 13px;border:none;background:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent}
+  .tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
+  .panel{display:none;padding:24px 16px 48px}
+  .wrap{max-width:960px;margin:0 auto}
+  .section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:18px;line-height:1.2}
+  h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:6px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+  @media(max-width:580px){.grid2{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+  .card-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .badge{display:inline-block;background:var(--gold-pale);color:#7a5c10;border:1px solid #e8d49a;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:500;font-family:'DM Mono',monospace}
+  .badge.teal{background:var(--teal-light);color:var(--teal);border-color:#9ecece}
+  .badge.rust{background:var(--rust-pale);color:var(--rust);border-color:#f0b8a8}
+  .badge.draft{background:#f0f0f0;color:#666;border-color:#ccc}
+  .badge.moss{background:#eef5eb;color:var(--moss);border-color:#b8d4b0}
+  .travelers-bar{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 20px}
+  .traveler-pill{background:#fff;border:1px solid var(--border);border-radius:100px;padding:4px 12px;font-size:12px}
+  .traveler-pill .role{font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;text-transform:uppercase;margin-left:4px}
+  .flight-option{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+  .flight-option.confirmed{border-color:var(--moss);border-width:2px}
+  .flight-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border)}
+  .flight-row:last-child{border-bottom:none}
+  .flight-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--teal);font-weight:500;min-width:90px}
+  .flight-route{flex:1;font-size:13px}
+  .flight-time{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)}
+  .day-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:20px}
+  .day-header{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+  .day-date{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--teal);line-height:1}
+  .day-name{font-size:13px;font-weight:500;color:var(--muted)}
+  .day-theme{margin-left:auto;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-align:right}
+  .timeline{position:relative;padding-left:24px}
+  .timeline::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--border)}
+  .tl-item{position:relative;margin-bottom:16px}
+  .tl-dot{position:absolute;left:-20px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--teal);border:2px solid var(--cream);box-shadow:0 0 0 2px var(--teal)}
+  .tl-dot.gold{background:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+  .tl-dot.rust{background:var(--rust);box-shadow:0 0 0 2px var(--rust)}
+  .tl-time{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:1px}
+  .tl-title{font-weight:600;font-size:14px;margin-bottom:2px}
+  .tl-desc{font-size:12.5px;color:#4a4035}
+  .tl-tip{margin-top:5px;background:var(--gold-pale);border-left:3px solid var(--gold);padding:6px 10px;font-size:11.5px;color:#6b5020;border-radius:0 4px 4px 0}
+  .tl-draft{margin-top:5px;background:#f5f5f5;border-left:3px solid #bbb;padding:6px 10px;font-size:11.5px;color:#666;border-radius:0 4px 4px 0}
+  .hotel-banner{background:var(--teal-light);border:1px solid #9ecece;border-radius:8px;padding:10px 14px;font-size:12.5px;margin-bottom:14px;color:#1a4040}
+  .budget-table{width:100%;border-collapse:collapse;font-size:12.5px}
+  .budget-table th{text-align:left;padding:8px 12px;background:var(--fog);border-bottom:2px solid var(--border);font-size:9px;font-family:'DM Mono',monospace;text-transform:uppercase;color:var(--muted)}
+  .budget-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  .budget-table .amount{font-family:'DM Mono',monospace;font-size:12px;text-align:right;white-space:nowrap}
+  .budget-table tfoot td{font-weight:600;border-top:2px solid var(--teal);color:var(--teal);background:var(--teal-light)}
+  .pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+  .pack-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+  .pack-card h3{font-size:10px;font-family:'DM Mono',monospace;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .pack-card ul{list-style:none}
+  .pack-card li{font-size:12px;padding:3px 0;border-bottom:1px solid var(--border)}
+  .pack-card li:last-child{border-bottom:none}
+  .pack-card li::before{content:'○ ';color:var(--gold);font-size:9px}
+  .tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+  .tip-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:12.5px}
+  .tip-icon{font-size:20px;margin-bottom:6px}
+  .tip-card strong{display:block;margin-bottom:3px;font-size:13px}
+  .fog-box{background:var(--fog);border-radius:10px;padding:16px 18px;margin-top:16px}
+  .inclusion-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:10px}
+  .inc-yes{background:#fff;border:1px solid var(--moss);border-radius:8px;padding:10px 14px;font-size:12px}
+  .inc-no{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--muted)}
+  footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);font-family:'DM Mono',monospace}
+  @media(max-width:480px){.hero{padding:36px 16px 28px}.day-card{padding:16px 14px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Draft Itinerary · Rathi Group Tour · JourneyQuest Travel</div>
+  <h1>India</h1>
+  <div class="hero-sub">Delhi · Agra · Jaipur · Udaipur · Mumbai</div>
+  <div class="hero-sub">Oct 27 – Nov 7, 2026 in-country · Return flight departs Nov 8, 2:25 AM</div>
+  <div class="hero-travelers">Steve & Leslie Veldhuis · Rathi Group · 16 Guests / 8 Rooms</div>
+  <div class="hero-chips">
+    <span class="chip">✈️ Delta GV5C9D</span>
+    <span class="chip">🏨 The Oberoi × 3 · Taj Mahal Palace</span>
+    <span class="chip">📋 Draft — Confirm Dates</span>
+  </div>
+</div>
+
+<div class="alert" style="max-width:960px;margin:12px auto 0">
+  ⚠️ <strong>This is a DRAFT.</strong> Day-by-day dates below were reconstructed by sequencing the JourneyQuest itinerary document against your confirmed flight dates (arrive Delhi Oct 27, depart Mumbai Nov 8). The original itinerary document had date labels stripped during conversion — please verify each day against the original PDF/Deepak before finalizing.
+</div>
+<div class="info-alert" style="max-width:960px;margin:8px auto 0">
+  💡 <strong>Open items:</strong> Domestic flight times (Delhi→Jaipur, Jaipur→Udaipur, Udaipur→Mumbai) are all "TBA" per the tour document. Visa (eVisa, apply within 30 days of travel) still needed. Deposit at Fifth Third still pending per your notes with Deepak.
+</div>
+
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="flights">✈️ Flights</button>
+    <button class="tab-btn" data-tab="day1">Delhi</button>
+    <button class="tab-btn" data-tab="day2">Agra</button>
+    <button class="tab-btn" data-tab="day3">Jaipur</button>
+    <button class="tab-btn" data-tab="day4">Udaipur</button>
+    <button class="tab-btn" data-tab="day5">Mumbai</button>
+    <button class="tab-btn" data-tab="budget">Budget</button>
+    <button class="tab-btn" data-tab="packing">Packing</button>
+    <button class="tab-btn" data-tab="tips">India Tips</button>
+  </div>
+</nav>
+
+<!-- OVERVIEW -->
+<div id="panel-overview" class="panel">
+<div class="wrap">
+  <div class="section-label">Trip Summary</div>
+  <h2>Rathi Group · Golden Triangle + Udaipur + Mumbai</h2>
+
+  <div class="grid2">
+    <div class="card" style="border-color:var(--rust)">
+      <div class="card-label">⚠️ Open Action Items</div>
+      <div style="font-size:12.5px;line-height:1.9">
+        📋 Confirm eVisa application — within 30 days of travel<br>
+        💰 Deposit check at Fifth Third — per Deepak conversation<br>
+        ✈️ Domestic flight times (Delhi→Jaipur, Jaipur→Udaipur, Udaipur→Mumbai) — all TBA<br>
+        🛂 Confirm Oct 26 night vs Oct 27 early morning arrival in Delhi with Deepak<br>
+        💵 Confirm whether $8,150/person land cost includes the int'l flights or is separate
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Trip Snapshot (Draft)</div>
+      <div style="font-size:13px;line-height:1.9">
+        📅 Arrive Delhi: <strong>Oct 27, 2:35 AM</strong><br>
+        📅 Depart Mumbai: <strong>Nov 8, 2:25 AM</strong><br>
+        🌙 Total nights in India: <strong>11</strong><br>
+        🏨 Hotels: <strong>The Oberoi ×3, Taj Mahal Palace</strong><br>
+        👥 Group size: <strong>16 guests / 8 rooms</strong><br>
+        💰 Land cost: <strong>$8,150/person</strong> (double occ.)
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Route</div>
+  <div class="card" style="margin-bottom:20px">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px">
+      <span class="badge teal">Delhi (3N)</span> →
+      <span class="badge">Agra (day trip)</span> →
+      <span class="badge teal">Jaipur (3N)</span> →
+      <span class="badge teal">Udaipur (3N)</span> →
+      <span class="badge teal">Mumbai (2N)</span>
+    </div>
+  </div>
+
+  <div class="section-label">Tour Inclusions vs. Extra Cost</div>
+  <div class="inclusion-grid">
+    <div class="inc-yes">✓ Accommodation — 8 rooms, all hotels listed</div>
+    <div class="inc-yes">✓ Domestic flights — Delhi-Jaipur, Jaipur-Udaipur, Udaipur-Mumbai (16 guests)</div>
+    <div class="inc-yes">✓ Professional guide + Heritage Interpreter + Tour Manager (stay included) + local guides</div>
+    <div class="inc-yes">✓ Transportation — Premium Maharaja Urbania vehicle, all cities</div>
+    <div class="inc-yes">✓ Premium mineral & sparkling water (glass bottles)</div>
+    <div class="inc-yes">✓ All monument/fort entry charges</div>
+    <div class="inc-yes">✓ Airport escort on all arrival/departure flights</div>
+    <div class="inc-yes">✓ Special Dinner with Musicians — Jaipur</div>
+    <div class="inc-no">✗ Lunches and shopping — not included</div>
+    <div class="inc-no">✗ International flights (RSW-DEL, BOM-RSW) — booked separately, $7,954.09</div>
+    <div class="inc-no">✗ Local Cooking Experience in Jaipur — $1,400 add-on (restaurant rooftop or rural village option)</div>
+    <div class="inc-no">✗ Travel insurance — Travelex, booked separately</div>
+  </div>
+
+  <div class="fog-box">
+    <h3 style="font-size:.95rem;margin-bottom:10px">Hotel Cancellation Policy</h3>
+    <div style="font-size:12.5px;line-height:1.8">
+      120–61 days prior to arrival: <strong>20%</strong> retention of total amount<br>
+      60–46 days prior to arrival: <strong>50%</strong> retention of total amount<br>
+      Within 45 days prior to arrival: <strong>100%</strong> retention of total amount
+    </div>
+  </div>
+
+  <div class="fog-box">
+    <h3 style="font-size:.95rem;margin-bottom:10px">JourneyQuest Travel — Contact</h3>
+    <div style="font-size:12.5px;line-height:1.8">
+      Agent: <strong>Deepak</strong><br>
+      Email: info@journeyquesttravel.com<br>
+      Phone/Fax: (630) 948-5400<br>
+      Address: 25082 Pinewater Cove Lane, Bonita Springs, FL 34134
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FLIGHTS -->
+<div id="panel-flights" class="panel">
+<div class="wrap">
+  <div class="section-label">International Flights — Confirmed</div>
+  <h2>RSW ↔ Delhi/Mumbai</h2>
+
+  <div class="flight-option confirmed">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <span class="badge moss">✓ Confirmed · GV5C9D</span>
+      <span style="font-family:'DM Mono',monospace;font-weight:600;color:var(--moss)">Upper Class</span>
+    </div>
+    <div class="card-label" style="margin-top:4px">Outbound — Sunday Oct 25 → Tuesday Oct 27</div>
+    <div class="flight-row"><div class="flight-num">DL 2126</div><div class="flight-route">Fort Myers (RSW) → New York (JFK)</div><div class="flight-time">6:30 PM → 9:24 PM</div></div>
+    <div class="flight-row"><div class="flight-num">DL 5990</div><div class="flight-route">New York (JFK) → London</div><div class="flight-time">10:30 PM → 9:20 AM +1</div></div>
+    <div class="flight-row"><div class="flight-num">DL 5948</div><div class="flight-route">London → Delhi (DEL)</div><div class="flight-time">12:35 PM → 2:35 AM +1</div></div>
+    <div style="margin-top:10px;font-size:12px;color:var(--muted)">2 stops · 25h 59m total · Operated by Virgin Atlantic for transatlantic/transcontinental legs</div>
+    <div class="tl-tip" style="margin-top:10px">💡 Arrival is technically 2:35 AM on Tuesday Oct 27 in Delhi — very late night/early morning arrival. The tour document references "Oct 26 night or Oct 27 early morning, anytime" per your notes with Deepak — this aligns. Confirm with JourneyQuest that the welcome/hotel transfer accounts for this very early arrival.</div>
+  </div>
+
+  <div class="flight-option confirmed">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <span class="badge moss">✓ Confirmed · GV5C9D</span>
+      <span style="font-family:'DM Mono',monospace;font-weight:600;color:var(--moss)">World Business</span>
+    </div>
+    <div class="card-label" style="margin-top:4px">Return — Sunday Nov 8 (just after midnight, following your last evening in Mumbai Nov 7)</div>
+    <div class="flight-row"><div class="flight-num">DL 9495</div><div class="flight-route">Mumbai (BOM) → Amsterdam</div><div class="flight-time">2:25 AM → 7:40 AM</div></div>
+    <div class="flight-row"><div class="flight-num">DL 47</div><div class="flight-route">Amsterdam → New York (JFK)</div><div class="flight-time">8:55 AM → 11:20 AM</div></div>
+    <div class="flight-row"><div class="flight-num">DL 2125</div><div class="flight-route">New York (JFK) → Fort Myers (RSW)</div><div class="flight-time">3:00 PM → 6:13 PM</div></div>
+    <div style="margin-top:10px;font-size:12px;color:var(--muted)">2 stops · 26h 18m total · Operated by KLM for the Mumbai-Amsterdam leg</div>
+    <div class="tl-tip" style="margin-top:10px">💡 Mumbai departure is 2:25 AM on Sunday, Nov 8 — meaning you'll need to leave the Taj Mahal Palace late on Saturday, Nov 7 evening, just after midnight. This significantly impacts your final day in Mumbai — see Mumbai tab for adjusted timing.</div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="card-label">Trip Total (Flights)</div>
+    <div style="font-size:18px;font-weight:700;color:var(--moss);font-family:'DM Mono',monospace">$7,954.09</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:4px">Flights: $7,765.00 + Taxes/Fees: $189.09 · 1 Passenger shown — confirm if this is per person or total for Steve & Leslie</div>
+  </div>
+
+  <div class="fog-box">
+    <h3 style="font-size:.95rem;margin-bottom:10px">Domestic Flights (Included in Tour Package)</h3>
+    <div style="font-size:12.5px;line-height:2">
+      ✈️ Delhi → Jaipur — <span class="badge draft">Time TBA</span><br>
+      ✈️ Jaipur → Udaipur — <span class="badge draft">Time TBA</span><br>
+      ✈️ Udaipur → Mumbai — <span class="badge draft">Time TBA</span><br>
+      <span style="color:var(--muted);font-size:11.5px">Per the tour document: "Note – There are only two flight options available morning and evening. If the evening flight is selected, breakfast can be enjoyed at the hotel as planned. However, if the flight is scheduled early in the morning, breakfast may need to be skipped." Times will be finalized once tickets are booked for the group of 16.</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- DELHI -->
+<div id="panel-day1" class="panel">
+<div class="wrap">
+  <div class="hotel-banner">🏨 <strong>The Oberoi, New Delhi</strong> · 3 Nights · Traditional aarti & tika welcome ceremony on arrival</div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 1</div><div><div class="day-name">~Tue Oct 27 · Arrival</div></div><div class="day-theme">Welcome to India</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot rust"></div><div class="tl-time">~2:35 AM</div><div class="tl-title">✈️ Arrive Delhi (Indira Gandhi Int'l)</div><div class="tl-desc">Greeted by JourneyQuest representative with traditional marigold flower garland. Transfer to The Oberoi, New Delhi, where a traditional welcome with aarti & tika ceremony awaits.</div><div class="tl-tip">💡 Very early arrival — first few hours reserved for rest after the long flight.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Morning</div><div class="tl-title">Rest & Recover</div><div class="tl-desc">First few hours after arrival are for relaxing after the long flight (25h59m total travel time, arriving ~2:35 AM).</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Afternoon</div><div class="tl-title">Half Day City Tour</div><div class="tl-desc">Delhi stands as the capital of Modern India — the mingling of Old and New India, ancient and modern. The city has seen the rise and fall of many emperors, leaving behind monuments that commemorate bygone ages.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Evening</div><div class="tl-title">Overnight at The Oberoi, New Delhi</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 2</div><div><div class="day-name">~Wed Oct 28</div></div><div class="day-theme">Old & New Delhi</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Morning</div><div class="tl-title">Breakfast, then Old & New Delhi Tour</div><div class="tl-desc"><strong>Mahatma Gandhi Memorial</strong><br><strong>Humayun's Tomb</strong> — UNESCO World Heritage Site, the tomb of Mughal emperor Humayun, commissioned 1569-70 by a Persian architect. The first garden-tomb on the Indian subcontinent.<br><strong>Qutub Minar</strong> — Delhi's most recognized landmark in Mehrauli, built in 1199 by Qutbuddin Aibak as a victory tower.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Afternoon</div><div class="tl-title">Half Day Shopping — Chandni Chowk</div><div class="tl-desc">Explore the bustling lanes of Old Delhi's historic Chandni Chowk — labyrinthine lanes unveiling treasures at every turn, colorful bazaars, and shopping.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Evening</div><div class="tl-title">Overnight at The Oberoi, New Delhi</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- AGRA -->
+<div id="panel-day2" class="panel">
+<div class="wrap">
+  <div class="hotel-banner">🏨 Day trip from Delhi — return to <strong>The Oberoi, New Delhi</strong> same night</div>
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 3</div><div><div class="day-name">~Thu Oct 29</div></div><div class="day-theme">Taj Mahal</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Morning</div><div class="tl-title">Drive to Agra</div><div class="tl-desc">Approx 210 km / 4–5 hrs drive from Delhi via the Premium Maharaja Urbania vehicle.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Midday</div><div class="tl-title">Agra Fort</div><div class="tl-desc">One of the large, fortified residences built at strategic points of the Mughal Empire. The fort blends Islamic and Hindu architectural styles. Said to be where Shah Jahan first saw Mumtaz and fell in love.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Sunset</div><div class="tl-title">Taj Mahal</div><div class="tl-desc">Built by Emperor Shah Jahan as a mausoleum for his beloved Queen Mumtaz — took 21 years to build. Enormous shimmering white dome, four corner minarets, perfect symmetry, intricate stone inlay work. <strong>Note: closed on Fridays</strong> — verify your visit date doesn't fall on a Friday.</div><div class="tl-tip">💡 Sunset visit timing is built into the tour — one of the most photographed monuments in the world. Bring a good camera.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Evening</div><div class="tl-title">Return to Delhi · Overnight at The Oberoi</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- JAIPUR -->
+<div id="panel-day3" class="panel">
+<div class="wrap">
+  <div class="hotel-banner">🏨 <strong>The Oberoi Rajvilas, Jaipur</strong> · 3 Nights</div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 4</div><div><div class="day-name">~Fri Oct 30</div></div><div class="day-theme">Pink City Arrival</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Morning</div><div class="tl-title">✈️ Fly Delhi → Jaipur</div><div class="tl-desc">Morning transfer to Delhi airport. Jaipur, capital of Rajasthan, is the "Pink City" — known for royal heritage, magnificent palaces, colorful bazaars, and rich culture.</div><div class="tl-draft">🗒️ Domestic flight time TBA</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Upon Arrival</div><div class="tl-title">Hawa Mahal</div><div class="tl-desc">The symbolic façade of the Pink City. Brief guided stop to admire intricate lattice windows and capture photographs.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Afternoon</div><div class="tl-title">Albert Hall Museum</div><div class="tl-desc">The oldest museum in Rajasthan, renowned for Indo-Saracenic architecture. Royal artifacts, miniature paintings, decorative arts.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Late Afternoon</div><div class="tl-title">Jal Mahal (Drive-By)</div><div class="tl-desc">The "Water Palace" set amidst Man Sagar Lake — scenic drive-by photo opportunity.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Evening</div><div class="tl-title">Overnight at The Oberoi Rajvilas, Jaipur</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 5</div><div><div class="day-name">~Sat Oct 31</div></div><div class="day-theme">Forts of Rajasthan</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Morning</div><div class="tl-title">Amber Fort — by Jeep</div><div class="tl-desc">Hilltop fortress, former Royal Family residence — one of India's most enchanting forts. Palaces, temples, mirror-inlaid halls, manicured gardens. Includes the Sheesh Mahal (Palace of Mirrors) and Diwan-e-Aam (Hall of Public Audience).</div><div class="tl-tip">🐘 Note from tour operator: elephant rides are available on request but not recommended due to animal welfare concerns — the jeep ascent is the standard option.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Afternoon</div><div class="tl-title">City Palace, Jaipur</div><div class="tl-desc">Built during the reign of Maharaja Sawai Jai Singh — outstanding art and architecture.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Evening</div><div class="tl-title">Govind Devji Krishna Temple — Evening Prayer Ceremony</div><div class="tl-desc">Experiential extra at no cost. Sawai Jai Singh installed the image of Govind Dev Ji, brought from Vrindavan. The patron deity of the royal family, religiously worshipped by Hindus throughout the city.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Night</div><div class="tl-title">🎵 Special Dinner with Musicians</div><div class="tl-desc">Included in the tour package — a signature Jaipur evening event.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Overnight</div><div class="tl-title">The Oberoi Rajvilas, Jaipur</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 6</div><div><div class="day-name">~Sun Nov 1</div></div><div class="day-theme">Astronomy & Shopping</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Morning</div><div class="tl-title">Jantar Mantar — Observatory</div><div class="tl-desc">A collection of architectural astronomical instruments built by Sawai Jai Singh. Name derived from "jantar" (instrument) and "mantar" (calculation) — literally "calculation instrument."</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Afternoon</div><div class="tl-title">Half Day Shopping</div><div class="tl-desc">Free time to explore Jaipur's markets — textiles, jewelry, handicrafts.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Optional Add-On</div><div class="tl-title">🍳 Local Cooking Experience — $1,400</div><div class="tl-desc">Available as restaurant rooftop experience or rural village experience with self-cooked meal (subject to availability). Not included in base package — decide with the group.</div><div class="tl-draft">🗒️ Decide and confirm with Deepak if the group wants this add-on</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Evening</div><div class="tl-title">Overnight at The Oberoi Rajvilas, Jaipur</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- UDAIPUR -->
+<div id="panel-day4" class="panel">
+<div class="wrap">
+  <div class="hotel-banner">🏨 <strong>The Oberoi Udaivilas, Udaipur</strong> · 3 Nights</div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 7</div><div><div class="day-name">~Mon Nov 2</div></div><div class="day-theme">City of Lakes Arrival</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Morning</div><div class="tl-title">✈️ Fly Jaipur → Udaipur</div><div class="tl-desc">Breakfast at hotel, then flight to Udaipur.</div><div class="tl-draft">🗒️ Domestic flight time TBA</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Midday</div><div class="tl-title">Lunch</div><div class="tl-desc">At hotel or a special restaurant selected by JourneyQuest.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Afternoon</div><div class="tl-title">Half Day City Tour — Royal Lakes & Palaces</div><div class="tl-desc">Explore the picturesque city of lakes lined with palaces along <strong>Lake Pichola</strong>. Visit the <strong>City Palace</strong> — an architectural masterpiece built in 1567, perched atop a hill overlooking Lake Pichola, consisting of four major palaces and several smaller ones within fortified walls.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Late Afternoon</div><div class="tl-title">Rajasthani Bazaar Walk</div><div class="tl-desc">Vibrant rich folk art, handicrafts, colorful by-lanes. Local life, traditional temples, camel carts, cycle rickshaws.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Evening</div><div class="tl-title">Overnight at The Oberoi Udaivilas</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 8</div><div><div class="day-name">~Tue Nov 3</div></div><div class="day-theme">Royal Heritage</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Morning</div><div class="tl-title">City Palace (Full Visit)</div><div class="tl-desc">Deeper exploration of the City Palace complex.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Midday</div><div class="tl-title">Sahelion-ki-Bari — Garden of the Maidens</div><div class="tl-desc">Built by Maharana Sangram Singh for his daughter and royal ladies. Designed to recreate the soothing effect of monsoon rains — fountains, lotus pools, marble pavilions.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Afternoon</div><div class="tl-title">Jagdish Temple + Shopping</div><div class="tl-desc">Visit the temple, then free time for shopping.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Sundown</div><div class="tl-title">⛵ Boat Cruise on Lake Pichola</div><div class="tl-desc">Witness the illuminated City Palace and surrounding heritage structures reflected in the tranquil waters.</div><div class="tl-tip">💡 One of the most photographed moments of the entire trip — bring the camera.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Evening</div><div class="tl-title">Overnight at The Oberoi Udaivilas</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 9</div><div><div class="day-name">~Wed Nov 4</div></div><div class="day-theme">Arts & Culture</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Morning</div><div class="tl-title">Shilpgram</div><div class="tl-desc">A rural arts and crafts complex highlighting traditional lifestyles, crafts, and architecture of Rajasthan and neighboring states.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Midday</div><div class="tl-title">Fateh Sagar Lake</div><div class="tl-desc">A scenic man-made lake surrounded by hills and woodlands — beautiful photo opportunities.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Afternoon</div><div class="tl-title">Leisure Time</div><div class="tl-desc">Free time for cafés, boutique shopping, or relaxing at the hotel.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Evening</div><div class="tl-title">Bagore-ki-Haveli</div><div class="tl-desc">An 18th-century royal mansion on the waterfront of Lake Pichola — royal artifacts, costumes, murals, traditional architecture.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Night</div><div class="tl-title">Overnight at The Oberoi Udaivilas</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MUMBAI -->
+<div id="panel-day5" class="panel">
+<div class="wrap">
+  <div class="hotel-banner">🏨 <strong>The Taj Mahal Palace, Mumbai</strong> · 2 Nights</div>
+
+  <div class="alert" style="margin-bottom:16px">⚠️ <strong>Tight final-day logistics:</strong> Return flight DL 9495 departs Mumbai at 2:25 AM on Sunday, Nov 8 (i.e., just after midnight, following your last evening in Mumbai on Saturday, Nov 7). This means Nov 7 evening needs to end early enough to allow airport departure around 11 PM–midnight. Confirm checkout/departure timing with Deepak — the tour notes say "Checkout will be planned once flight information is provided," and you now have confirmed flight times to share.</div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 10</div><div><div class="day-name">~Thu Nov 5</div></div><div class="day-theme">Arrival + Elephanta Caves</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Morning</div><div class="tl-title">✈️ Fly Udaipur → Mumbai</div><div class="tl-desc">Breakfast at hotel, then airport transfer and flight to Mumbai.</div><div class="tl-draft">🗒️ Domestic flight time TBA</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Evening</div><div class="tl-title">⛵ Elephanta Caves by Speedboat</div><div class="tl-desc">UNESCO World Heritage Site — ancient rock-cut temples primarily dedicated to Lord Shiva, dating to the 5th–6th century. Renowned for monumental sculptures, especially the iconic three-headed Trimurti representing Shiva as Creator, Preserver, and Destroyer. Speedboat offers a faster, more comfortable crossing of Mumbai Harbour.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Night</div><div class="tl-title">Overnight at The Taj Mahal Palace</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header"><div class="day-date">Day 11</div><div><div class="day-name">~Fri Nov 6</div></div><div class="day-theme">Gateway & Heritage</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Morning</div><div class="tl-title">Gateway of India</div><div class="tl-desc">One of Mumbai's most celebrated landmarks, built to commemorate the 1911 visit of King George V and Queen Mary.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Midday</div><div class="tl-title">Prince of Wales Museum (CSMVS)</div><div class="tl-desc">Chhatrapati Shivaji Maharaj Vastu Sangrahalaya, constructed 1904–1914, once used as a hospital during WWI. Houses an exceptional collection of Indian art, sculpture, textiles, and historical artifacts — among the finest in the country.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Afternoon</div><div class="tl-title">Half Day Shopping / Optional: Dharavi</div><div class="tl-desc">Free shopping time, or visit to the Dharavi area if accessible — currently under redevelopment, so availability may vary.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">Night</div><div class="tl-title">Overnight at The Taj Mahal Palace</div></div>
+    </div>
+  </div>
+
+  <div class="day-card" style="border-color:var(--rust)">
+    <div class="day-header"><div class="day-date">Day 12</div><div><div class="day-name">~Sat Nov 7</div></div><div class="day-theme" style="color:var(--rust)">Departure</div></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">Daytime (Nov 7)</div><div class="tl-title">Final Heritage Tour</div><div class="tl-desc">Guided sightseeing including the <strong>Gandhi Memorial Museum (Mani Bhawan)</strong> — Mahatma Gandhi's former residence and an important site in India's freedom movement — followed by a <strong>Jain Temple</strong> visit. Drive past <strong>Marine Drive</strong>, the "Queen's Necklace," for sweeping Arabian Sea views.</div></div>
+      <div class="tl-item"><div class="tl-dot rust"></div><div class="tl-time">~11 PM–Midnight</div><div class="tl-title">⚠️ Airport Departure</div><div class="tl-desc">Given the 2:25 AM flight departure, plan to leave the hotel by approximately 11:00 PM–midnight on Nov 7 to allow for international check-in and security at Mumbai (BOM).</div><div class="tl-draft">🗒️ Confirm exact checkout/transfer timing with Deepak now that flight times are known</div></div>
+      <div class="tl-item"><div class="tl-dot rust"></div><div class="tl-time">2:25 AM · Nov 8</div><div class="tl-title">✈️ Depart Mumbai — DL 9495</div><div class="tl-desc">Mumbai → Amsterdam → New York → Fort Myers. Total journey 26h18m, arriving RSW 6:13 PM Nov 8.</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- BUDGET -->
+<div id="panel-budget" class="panel">
+<div class="wrap">
+  <div class="section-label">Estimated Costs — Steve & Leslie</div>
+  <h2>Budget Summary (Draft)</h2>
+  <p style="margin-bottom:20px;color:var(--muted);font-size:13px">Per-couple estimate. Land package is confirmed at $8,150/person double occupancy; flights are confirmed at $7,954.09. Other costs are estimates.</p>
+
+  <div class="card" style="overflow-x:auto">
+    <table class="budget-table">
+      <thead><tr><th>Category</th><th>Item</th><th style="text-align:right">Cost</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>✈️ Int'l Flights</strong></td><td>RSW↔DEL/BOM, Upper Class / World Business</td><td class="amount">$7,954.09</td><td>Confirmed · GV5C9D · confirm if per-person or total</td></tr>
+        <tr><td><strong>🏨 Land Package</strong></td><td>Tour package (per person, double occ.)</td><td class="amount">$8,150</td><td>× 2 = $16,300 for Steve & Leslie · subject to change per currency/flight cost</td></tr>
+        <tr><td><strong>🍳 Optional</strong></td><td>Jaipur Cooking Experience (if added)</td><td class="amount">~$1,400</td><td>Per the group, not per person — confirm pricing structure</td></tr>
+        <tr><td><strong>🍽️ Meals</strong></td><td>Lunches throughout (not included)</td><td class="amount">~$400–600</td><td>~$30–50/day × 11 days × 2 people</td></tr>
+        <tr><td><strong>🛍️ Shopping</strong></td><td>Textiles, jewelry, sweetgrass-equivalent souvenirs</td><td class="amount">~$500–1,500</td><td>Highly variable — Jaipur and Udaipur markets are excellent</td></tr>
+        <tr><td><strong>🛂 Visa</strong></td><td>India eVisa (2 people)</td><td class="amount">~$200</td><td>~$100/person, apply within 30 days of travel</td></tr>
+        <tr><td><strong>🛡️ Insurance</strong></td><td>Travelex travel insurance</td><td class="amount">TBD</td><td>Quote pending — see Travelex docs in Obsidian</td></tr>
+        <tr><td><strong>💵 Tips/Gratuities</strong></td><td>Guides, drivers, hotel staff</td><td class="amount">~$400–600</td><td>India tour gratuities typically $20–30/day per couple for guide+driver</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="2"><strong>Estimated Total (Steve & Leslie)</strong></td><td class="amount"><strong>~$27,500–29,500</strong></td><td style="font-size:11px">Excludes Travelex insurance quote, includes most other categories</td></tr></tfoot>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--muted);margin-top:10px">* This is a draft estimate. The $8,150/person land cost is "subject to change due to currency and flight cost until time of booking" per the tour document. Confirm final numbers with Deepak before the deposit deadline.</p>
+</div>
+</div>
+
+<!-- PACKING -->
+<div id="panel-packing" class="panel">
+<div class="wrap">
+  <div class="section-label">What to Bring</div>
+  <h2>Packing List</h2>
+  <p style="margin-bottom:20px;color:var(--muted);font-size:13px">Late Oct–early Nov in North India (Delhi/Agra/Jaipur): warm days (75–85°F), cool mornings/evenings (50–60°F), low humidity. Udaipur similar. Mumbai is warmer and more humid year-round (80–90°F). Modest dress required for temples.</p>
+  <div class="pack-grid">
+    <div class="pack-card"><h3>Clothing</h3><ul>
+      <li>Lightweight layers — light jacket/sweater for cool mornings (Delhi/Jaipur/Udaipur)</li>
+      <li>Modest clothing for temples — shoulders/knees covered</li>
+      <li>Comfortable cotton/linen shirts for Mumbai heat</li>
+      <li>1–2 nicer outfits for special dinners (Jaipur musicians dinner)</li>
+      <li>Scarf or shawl (useful for temple visits, AC, dust)</li>
+    </ul></div>
+    <div class="pack-card"><h3>Footwear</h3><ul>
+      <li>Comfortable walking shoes — forts have significant walking/stairs</li>
+      <li>Slip-on shoes — many temples require shoe removal</li>
+      <li>Sandals for hotel/evening wear</li>
+    </ul></div>
+    <div class="pack-card"><h3>Health & Sun</h3><ul>
+      <li>Sunscreen SPF 50+</li>
+      <li>Sunglasses, sun hat</li>
+      <li>Hand sanitizer, wet wipes</li>
+      <li>Prescription medications + copies of prescriptions</li>
+      <li>Consult travel doctor — possible vaccinations/malaria prophylaxis</li>
+      <li>Stomach medication (Imodium, Pepto) as precaution</li>
+    </ul></div>
+    <div class="pack-card"><h3>Photography</h3><ul>
+      <li>Camera + extra batteries</li>
+      <li>Wide angle lens — Taj Mahal, forts, palaces</li>
+      <li>Extra memory cards</li>
+      <li>Portable charger</li>
+    </ul></div>
+    <div class="pack-card"><h3>Practical</h3><ul>
+      <li>Universal power adapter (India: Type C/D/M, 230V)</li>
+      <li>Cash — small USD bills + plan to exchange for INR</li>
+      <li>Copies of passport + eVisa printed</li>
+      <li>Travel insurance documents (Travelex)</li>
+      <li>Earplugs (city noise, early flights)</li>
+    </ul></div>
+    <div class="pack-card"><h3>Documents</h3><ul>
+      <li>Passports — valid 6+ months from travel date</li>
+      <li>eVisa confirmation (apply within 30 days of travel)</li>
+      <li>Flight confirmation GV5C9D</li>
+      <li>JourneyQuest itinerary + emergency contact</li>
+      <li>Travelex insurance policy details</li>
+      <li>Hotel confirmations (Oberoi ×3, Taj Mahal Palace)</li>
+    </ul></div>
+  </div>
+</div>
+</div>
+
+<!-- TIPS -->
+<div id="panel-tips" class="panel">
+<div class="wrap">
+  <div class="section-label">Insider Knowledge</div>
+  <h2>India Trip Tips</h2>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">🛂</div><strong>eVisa Timing</strong>Apply within 30 days of travel per your notes — not earlier. Mark a calendar reminder for late September 2026 to submit.</div>
+    <div class="tip-card"><div class="tip-icon">🐘</div><strong>Amber Fort — Jeep vs. Elephant</strong>JourneyQuest defaults to jeep transport up to Amber Fort due to animal welfare concerns around elephant rides, though they can arrange it if specifically requested.</div>
+    <div class="tip-card"><div class="tip-icon">🕌</div><strong>Taj Mahal is Closed Fridays</strong>Confirm your Agra day-trip date isn't a Friday — the tour document explicitly notes this closure.</div>
+    <div class="tip-card"><div class="tip-icon">🛕</div><strong>Temple Etiquette</strong>Shoes off before entering most temples. Shoulders and knees covered. A light scarf is useful for impromptu head coverings at certain sites.</div>
+    <div class="tip-card"><div class="tip-icon">💧</div><strong>Water & Food Safety</strong>Premium bottled water is included throughout the tour. Stick to bottled/filtered water even for teeth-brushing. Hotel restaurants (Oberoi, Taj) are very safe; street food is tempting but higher risk.</div>
+    <div class="tip-card"><div class="tip-icon">💰</div><strong>Tipping Culture</strong>India has an active tipping culture for guides, drivers, and hotel staff. Budget roughly $20–30/day per couple for the tour guide and driver combined; small additional tips for hotel staff.</div>
+    <div class="tip-card"><div class="tip-icon">🛍️</div><strong>Shopping Negotiation</strong>Bazaar shopping (Chandni Chowk, Jaipur markets) involves negotiation as standard practice. Fixed-price shops (government emporiums) don't negotiate but guarantee authenticity for items like carpets and jewelry.</div>
+    <div class="tip-card"><div class="tip-icon">📅</div><strong>Holiday Schedule Flexibility</strong>Per the tour document: "some holidays the government announces" may shift the itinerary automatically. Stay flexible on exact day-to-day sequencing — JourneyQuest will adjust as needed.</div>
+    <div class="tip-card"><div class="tip-icon">✈️</div><strong>The Long Haul</strong>Both international legs are ~26 hours door to door with 2 stops. Factor in significant jet lag recovery — the itinerary wisely builds in a rest period on Day 1 in Delhi.</div>
+  </div>
+</div>
+</div>
+
+<footer>
+  India · Rathi Group Tour · October–November 2026 · DRAFT — dates reconstructed, confirm with JourneyQuest Travel<br>
+  Steve & Leslie Veldhuis · Agent: Deepak, JourneyQuest Travel · (630) 948-5400
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var buttons = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.panel');
+  function activateTab(id) {
+    panels.forEach(function(p) { p.style.display = 'none'; });
+    buttons.forEach(function(b) { b.classList.remove('active'); });
+    var panel = document.getElementById('panel-' + id);
+    if (panel) panel.style.display = 'block';
+    buttons.forEach(function(b) { if (b.getAttribute('data-tab') === id) b.classList.add('active'); });
+    window.scrollTo(0, 0);
+  }
+  buttons.forEach(function(btn) {
+    var id = btn.getAttribute('data-tab');
+    ['click', 'touchend'].forEach(function(evt) {
+      btn.addEventListener(evt, function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        activateTab(id);
+      }, { passive: false });
+    });
+  });
+  activateTab('overview');
+});
+</script>
+</body>
+</html>
