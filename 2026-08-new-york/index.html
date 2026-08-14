@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New York Weekend — Aug 14-16, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #2a6b6b;
+    --gold: #c8983a;
+          --rust: #b84c2e;
+          --moss: #4a6741;
+    --cream: #fdfaf4;
+          --fog: #f5f0e8;
+          --border: #ddd5c0;
+          --muted: #7a6f5e;
+}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+        font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: #2b2620;
+    line-height: 1.5;
+    padding-bottom: 40px;
+}
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+  .hero {
+        background: var(--teal);
+    color: white;
+    padding: 32px 20px 26px;
+}
+  .hero-eyebrow {
+        font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 10px;
+}
+  .hero h1 {
+        font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+  .hero-sub { font-size: 15px; opacity: 0.92; margin-bottom: 10px; }
+  .hero-travelers { font-size: 13px; opacity: 0.85; margin-bottom: 14px; }
+  .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero-chips span {
+        background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 13px;
+}
+  .alert {
+        background: #fbe9e4;
+            border: 1px solid var(--rust);
+    color: #7a2e18;
+    padding: 12px 16px;
+    margin: 16px 20px 0;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  .tabs {
+        display: flex;
+    overflow-x: auto;
+    gap: 6px;
+    padding: 16px 20px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tab-btn {
+        font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    white-space: nowrap;
+    background: var(--fog);
+    border: 1px solid var(--border);
+    color: #4a4436;
+    padding: 9px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+  .tab-btn.active { background: var(--teal); border-color: var(--teal); color: white; }
+  .content { padding: 20px; max-width: 760px; margin: 0 auto; }
+  .panel { display: none; }
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .card.confirmed { border-color: var(--moss); border-width: 2px; }
+  .card h3 { font-size: 16px; margin-bottom: 8px; }
+  .meta-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .confirmed-tag { color: var(--moss); font-weight: 700; font-size: 12px; }
+  .traveler-pill {
+        display: inline-block;
+    background: var(--fog);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    margin: 0 6px 6px 0;
+}
+  .traveler-pill .role { color: var(--muted); font-size: 11px; margin-left: 4px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--border); }
+  th { font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; color: var(--muted); }
+      tfoot td { font-weight: 700; border-top: 2px solid var(--teal); border-bottom: none; }
+  .tl-item { position: relative; padding: 4px 0 16px 24px; border-left: 2px solid var(--border); margin-left: 6px; }
+  .tl-item:last-child { border-left-color: transparent; }
+  .tl-dot { position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--teal); border: 2px solid white; }
+  .tl-dot.gold { background: var(--gold); }
+  .tl-dot.rust { background: var(--rust); }
+  .tl-time { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
+  .tl-title { font-weight: 700; font-size: 15px; margin: 2px 0 4px; }
+  .res-badge { display: inline-block; background: #eaf1e8; color: var(--moss); font-size: 12px; padding: 3px 9px; border-radius: 6px; margin-bottom: 6px; }
+    .tl-desc { font-size: 13.5px; color: #4a4436; }
+  .tl-tip { font-size: 13px; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .tip-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; font-size: 13.5px; }
+  .todo li { font-size: 13.5px; margin-bottom: 6px; }
+  code { font-family: 'DM Mono', monospace; background: var(--fog); padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 20px 0 8px; }
+</style>
+  </head>
+  <body>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Hotel #60880SG160623 · Delta HLJ4WE / HLNGTL</div>
+  <h1>
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 2 L15 20" stroke="#c8983a" stroke-width="2"/>
+        <path d="M15 3 L27 8 L15 12 Z" fill="#c8983a"/>
+        <circle cx="15" cy="26" r="3" fill="none" stroke="white" stroke-width="1.5"/>
+      </svg>
+      New York Weekend
+  </h1>
+  <div class="hero-sub">August 14–16, 2026 · The Marmara Park Avenue</div>
+    <div class="hero-travelers">Steve &amp; Leslie Veldhuis · visiting Alexis</div>
+  <div class="hero-chips">
+    <span>🚗 Steve drives from Cincinnati</span>
+    <span>✈️ Leslie flies CVG→LGA</span>
+    <span>🏨 2 nights, Murray Hill</span>
+    <span>👨‍👩‍👧 Visiting Alexis</span>
+    </div>
+  </div>
+
+  <div class="alert">📝 <strong>Open item:</strong> Steve's return trip Sunday is booked by <em>air</em> (Delta DL4929, same flight as Leslie) — no return drive leg was found in your reservations. If the car is being driven to New York, worth confirming who's driving it back or whether it's staying in the city.</div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="logistics">Logistics</button>
+    <button class="tab-btn" data-tab="day1">Fri Aug 14</button>
+    <button class="tab-btn" data-tab="day2">Sat Aug 15</button>
+    <button class="tab-btn" data-tab="day3">Sun Aug 16</button>
+    <button class="tab-btn" data-tab="dining">Dining</button>
+    <button class="tab-btn" data-tab="budget">Budget</button>
+    <button class="tab-btn" data-tab="packing">Packing</button>
+    <button class="tab-btn" data-tab="tips">Local Tips</button>
+  </div>
+
+  <div class="content">
+
+    <!-- LOGISTICS -->
+    <div class="panel" id="panel-logistics">
+      <div class="traveler-pill">🧔 Steve <span class="role">Driving</span></div>
+      <div class="traveler-pill">👩 Leslie <span class="role">Flying</span></div>
+      <div class="traveler-pill">👩‍🦰 Alexis <span class="role">Daughter, in NYC</span></div>
+
+      <div class="section-label">Getting there</div>
+      <div class="card">
+        <h3>🚗 Steve — Driving, Cincinnati → New York</h3>
+      <div class="meta-row"><span>Distance</span><span>~634 miles</span></div>
+      <div class="meta-row"><span>Est. drive time</span><span>~10 hrs (no traffic)</span></div>
+        <div class="meta-row"><span>Route</span><span>I-71 N → I-76 E (fastest option)</span></div>
+        <div class="meta-row"><span>Time zone</span><span>None — Cincinnati and NYC are both Eastern</span></div>
+        <div class="tl-tip">💡 It's a long single-day drive — if leaving today, a mid-route break (e.g. around Breezewood, PA) helps break up the ~10 hours.</div>
+      </div>
+      <div class="card confirmed">
+        <h3>✈️ Leslie — Delta DL 5014, CVG → LGA</h3>
+        <div class="confirmed-tag">✓ Confirmed · HLJ4WE</div>
+        <div class="meta-row"><span>Fri Aug 14</span><span>Depart CVG 10:30 AM</span></div>
+        <div class="meta-row"><span></span><span>Arrive LGA 12:28 PM</span></div>
+        <div class="meta-row"><span>Cabin</span><span>Delta Main Classic (V)</span></div>
+      </div>
+
+      <div class="section-label">Hotel</div>
+      <div class="card confirmed">
+        <h3>🏨 The Marmara Park Avenue</h3>
+        <div class="confirmed-tag">✓ Confirmed · #60880SG160623</div>
+        <div class="meta-row"><span>Address</span><span>114 E. 32nd St, New York, NY 10016</span></div>
+        <div class="meta-row"><span>Phone</span><span>(212) 603-9000</span></div>
+        <div class="meta-row"><span>Check-in</span><span>Fri Aug 14 · 3:00 PM</span></div>
+        <div class="meta-row"><span>Check-out</span><span>Sun Aug 16 · 11:00 AM</span></div>
+        <div class="meta-row"><span>Room</span><span>Deluxe Queen · 2 adults</span></div>
+      <div class="meta-row"><span>Total</span><span>$842.39 (incl. tax)</span></div>
+      <div class="tl-tip">💡 Includes wellness center/pool access, Turkish hammam, 24-hr gym, and package storage for up to 2 pieces. Booked under Leslie's name.</div>
+      </div>
+
+      <div class="section-label">First stop — Alexis</div>
+    <div class="card">
+      <h3>👩‍🦰 Alexis Veldhuis</h3>
+      <div class="meta-row"><span>Address</span><span>401 E 34th St, New York, NY 10016</span></div>
+        <div class="meta-row"><span>From hotel</span><span>~0.5 mi · 10 min walk</span></div>
+      <div class="tl-tip">💡 Alexis has been working with Rusk Rehabilitation at NYU Langone for PT, a few blocks further east — worth checking if there's anything to coordinate around a session while you're in town.</div>
+      </div>
+
+      <div class="section-label">Return</div>
+      <div class="grid-2">
+        <div class="card confirmed">
+          <h3>✈️ Leslie — DL 4929, LGA → CVG</h3>
+          <div class="confirmed-tag">✓ Confirmed · HLJ4WE</div>
+          <div class="meta-row"><span>Sun Aug 16</span><span>Depart LGA 6:29 PM</span></div>
+          <div class="meta-row"><span></span><span>Arrive CVG 8:54 PM</span></div>
+        </div>
+        <div class="card confirmed">
+          <h3>✈️ Steve — DL 4929, LGA → CVG</h3>
+          <div class="confirmed-tag">✓ Confirmed · HLNGTL</div>
+          <div class="meta-row"><span>Sun Aug 16</span><span>Depart LGA 6:29 PM</span></div>
+          <div class="meta-row"><span></span><span>Arrive CVG 8:54 PM</span></div>
+        </div>
+      </div>
+      <div class="tl-tip">💡 Same flight — Steve and Leslie fly home together Sunday evening.</div>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="panel" id="panel-day1">
+      <h2 style="margin-bottom:14px;">Friday, August 14</h2>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">Morning</div>
+        <div class="tl-title">🚗 Steve departs Cincinnati</div>
+      <div class="tl-desc">~10-hour drive to New York (~634 mi). Departure time depends on when you're able to leave today — plan a midday or afternoon break.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot gold"></div>
+        <div class="tl-time">10:30 AM</div>
+        <div class="tl-title">✈️ Leslie departs CVG</div>
+      <div class="res-badge">✓ Confirmed · DL 5014 · Arrives LGA 12:28 PM</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot gold"></div>
+        <div class="tl-time">Early afternoon</div>
+        <div class="tl-title">👩‍🦰 First stop: Alexis's place</div>
+        <div class="tl-desc">401 E 34th St. Leslie can head straight here from LGA (~20–25 min by rideshare); Steve joins once he arrives in the city.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">3:00 PM</div>
+        <div class="tl-title">🏨 Hotel check-in</div>
+        <div class="res-badge">✓ Confirmed · The Marmara Park Avenue</div>
+      <div class="tl-desc">114 E. 32nd St — a 10-minute walk from Alexis's.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">Evening</div>
+        <div class="tl-title">🍽️ Dinner in Murray Hill</div>
+        <div class="tl-desc">See Dining tab for nearby options — nothing reserved yet.</div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="panel" id="panel-day2">
+      <h2 style="margin-bottom:14px;">Saturday, August 15</h2>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">Open day</div>
+        <div class="tl-title">No confirmed plans found</div>
+        <div class="tl-desc">Full day in the city — time with Alexis, and whatever else you'd like to fit in. Happy to fill this in with restaurant bookings or activities if you want more structure.</div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="panel" id="panel-day3">
+      <h2 style="margin-bottom:14px;">Sunday, August 16</h2>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">11:00 AM</div>
+        <div class="tl-title">🏨 Hotel check-out</div>
+        <div class="tl-desc">The Marmara Park Avenue.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">Afternoon</div>
+        <div class="tl-title">Free time / last visit with Alexis</div>
+        <div class="tl-desc">Leave enough buffer to get to LGA — allow ~45–60 min from Murray Hill depending on traffic, plus standard TSA time.</div>
+    </div>
+    <div class="tl-item">
+        <div class="tl-dot rust"></div>
+        <div class="tl-time">6:29 PM</div>
+        <div class="tl-title">✈️ Fly home together — DL 4929, LGA → CVG</div>
+        <div class="res-badge">✓ Confirmed · Steve HLNGTL · Leslie HLJ4WE · Arrives CVG 8:54 PM</div>
+        <div class="tl-desc">Both booked on the same flight.</div>
+      </div>
+    </div>
+
+    <!-- DINING -->
+    <div class="panel" id="panel-dining">
+      <h2 style="margin-bottom:14px;">Dining</h2>
+      <p style="font-size:13.5px; color:var(--muted); margin-bottom:14px;">No dinner reservations were found in your inbox for this trip — these are just nearby options in Murray Hill/Curry Hill, an easy walk from the hotel and Alexis's.</p>
+      <div class="card">
+        <h3>Park Avenue Tavern</h3>
+      <div class="tl-desc">American gastropub, a few blocks from the hotel — solid casual dinner option, good for a relaxed night.</div>
+      </div>
+      <div class="card">
+        <h3>Nōksu</h3>
+        <div class="tl-desc">49 W 32nd St (basement) — tasting-menu Korean spot, well reviewed. Book ahead if interested; it's small.</div>
+      </div>
+      <div class="card">
+        <h3>Curry Hill</h3>
+        <div class="tl-desc">The blocks around Lexington & 27th–29th are known as "Curry Hill" — some of the city's best Indian food, a short walk or cab from the hotel.</div>
+      </div>
+    </div>
+
+    <!-- BUDGET -->
+    <div class="panel" id="panel-budget">
+      <h2 style="margin-bottom:14px;">Budget</h2>
+      <table>
+        <thead><tr><th>Category</th><th>Detail</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Hotel</td><td>Marmara Park Ave, 2 nights</td><td>Booked ✓ $842.39</td></tr>
+          <tr><td>Flight — Leslie</td><td>DL round trip, CVG↔LGA</td><td>Booked ✓ $608.80</td></tr>
+        <tr><td>Flight — Steve</td><td>DL return leg, LGA→CVG</td><td>Booked ✓ $503.40</td></tr>
+          <tr><td>Driving — Steve</td><td>~634 mi each way, gas</td><td>Est. ~$90–110 (one-way)</td></tr>
+          <tr><td>Dining</td><td>3–4 meals in the city</td><td>TBD</td></tr>
+          <tr><td>Local transport</td><td>Rideshare / walking</td><td>Est. ~$40–60</td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="2">Total (booked + est.)</td><td>~$2,000+</td></tr></tfoot>
+      </table>
+    </div>
+
+    <!-- PACKING -->
+    <div class="panel" id="panel-packing">
+      <h2 style="margin-bottom:14px;">Packing</h2>
+      <div class="grid-2">
+        <div class="card"><h3>👕 Clothing</h3><div class="tl-desc">Warm-weather casual for August in NYC; one nicer outfit for dinner out.</div></div>
+        <div class="card"><h3>👟 Footwear</h3><div class="tl-desc">Comfortable walking shoes — lots of city walking between the hotel and Alexis's.</div></div>
+        <div class="card"><h3>🌦️ Weather</h3><div class="tl-desc">Hot/humid mid-August — light layers, sunglasses; check for afternoon storms before you go.</div></div>
+      <div class="card"><h3>📄 Documents</h3><div class="tl-desc">REAL ID / passport for Delta flights, boarding passes, hotel confirmation, parking info for the drive.</div></div>
+      </div>
+    </div>
+
+    <!-- TIPS -->
+    <div class="panel" id="panel-tips">
+      <h2 style="margin-bottom:14px;">Local Tips</h2>
+      <div class="tip-card">🚕 Murray Hill is well served by rideshare and close to the 6 train (33rd St) if you want to skip traffic.</div>
+      <div class="tip-card">🅿️ If driving into Manhattan, hotel/street parking is expensive — a nearby garage booked in advance (via SpotHero or similar) is usually cheaper than hotel valet.</div>
+    <div class="tip-card">🛫 LGA can back up on Sunday evenings — leave the extra buffer noted on the Sunday tab.</div>
+  </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var buttons = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.panel');
+
+  function activateTab(id) {
+        panels.forEach(function(p) { p.style.display = 'none'; });
+    buttons.forEach(function(b) { b.classList.remove('active'); });
+    var panel = document.getElementById('panel-' + id);
+    if (panel) panel.style.display = 'block';
+    buttons.forEach(function(b) {
+            if (b.getAttribute('data-tab') === id) b.classList.add('active');
+    });
+    window.scrollTo(0, 0);
+  }
+
+  buttons.forEach(function(btn) {
+        var id = btn.getAttribute('data-tab');
+    ['click', 'touchend'].forEach(function(evt) {
+            btn.addEventListener(evt, function(e) {
+                      e.preventDefault();
+        e.stopPropagation();
+        activateTab(id);
+            }, { passive: false });
+    });
+  });
+
+  activateTab('logistics');
+});
+</script>
+
+  </body>
+  </html>
+  
