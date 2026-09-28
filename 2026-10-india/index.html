@@ -87,14 +87,26 @@
   .inc-yes{background:#fff;border:1px solid var(--moss);border-radius:8px;padding:10px 14px;font-size:12px}
   .inc-no{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--muted)}
   footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);font-family:'DM Mono',monospace}
-  @media(max-width:480px){.hero{padding:36px 16px 28px}.day-card{padding:16px 14px}}
+  .hero-mini,.hero-toggle{display:none}
+  @media(max-width:600px){
+    .hero{padding:10px 14px;text-align:left}
+    .hero-top{display:flex;align-items:center;gap:10px}
+    .hero h1{font-size:1.35rem;margin:0}
+    .hero-mini{display:inline;font-size:12px;color:rgba(255,255,255,.85);flex:1}
+    .hero-toggle{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:100px;padding:4px 12px;font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer}
+    .hero.collapsed .hero-detail{display:none}
+    .hero-detail{margin-top:10px;text-align:center}
+    .hero-detail .hero-travelers{margin-bottom:12px}
+  }
+  @media(max-width:480px){.day-card{padding:16px 14px}}
 </style>
 </head>
 <body>
 
-<div class="hero">
+<div class="hero collapsed" id="hero">
+  <div class="hero-top"><h1>India</h1><span class="hero-mini">Oct 27 – Nov 8 · Rathi Group</span><button class="hero-toggle" id="heroToggle" type="button" aria-expanded="false">Details ▾</button></div>
+  <div class="hero-detail">
   <div class="hero-eyebrow">Finalized Itinerary · Rathi Group Tour · JourneyQuest Travel</div>
-  <h1>India</h1>
   <div class="hero-sub">Delhi · Agra · Jaipur · Udaipur · Mumbai</div>
   <div class="hero-sub">Oct 27 – Nov 7, 2026 in-country · Return flight departs Nov 8, 2:30 AM</div>
   <div class="hero-travelers">Steve & Leslie Veldhuis · Rathi Group · 16 Guests / 8 Rooms</div>
@@ -102,6 +114,7 @@
     <span class="chip">✈️ Delta GV5C9D</span>
     <span class="chip">🏨 The Oberoi × 3 · Taj Mahal Palace · JW Marriott Mumbai Sahar</span>
     <span class="chip">✅ Finalized by JourneyQuest (Sept 16)</span>
+  </div>
   </div>
 </div>
 
@@ -141,6 +154,7 @@
         📋 Complete E-Arrival Card — up to 72 hrs before landing — indianvisaonline.gov.in/earrival<br>
         📱 Install WhatsApp — Deepak is creating a group for in-country coordination<br>
         💰 Deposit check at Fifth Third — per Deepak conversation<br>
+        💸 <strong>Venmo $120 per couple to @dsingh1963</strong> — reason: "train" (Delhi→Agra train upgrade)<br>
         💵 Confirm whether $8,150/person land cost includes the int'l flights or is separate<br>
         💆 Optional: let Deepak know if you want any Asmi by Oberoi spa treatments pre-booked
       </div>
@@ -193,7 +207,6 @@
   <div class="inclusion-grid">
     <div class="inc-yes">✓ Accommodation — 8 rooms, all hotels listed</div>
     <div class="inc-yes">✓ Domestic flights — Delhi-Jaipur, Jaipur-Udaipur, Udaipur-Mumbai (16 guests)</div>
-    <div class="inc-yes">✓ Gatimaan Express train (Executive Chair Car) — Delhi ↔ Agra, round trip</div>
     <div class="inc-yes">✓ Professional guide + Heritage Interpreter + Tour Manager (stay included) + local guides</div>
     <div class="inc-yes">✓ Personalized airport meet-and-assist + escort through arrivals in Delhi</div>
     <div class="inc-yes">✓ Transportation — Premium Maharaja Urbania vehicle, all cities</div>
@@ -201,6 +214,7 @@
     <div class="inc-yes">✓ All monument/fort entry charges</div>
     <div class="inc-yes">✓ 2 Special Dinners — prepaid (Oberoi Rajvilas, Jaipur & Oberoi Udaivilas, Udaipur)</div>
     <div class="inc-yes">✓ Curated shopping experiences — Delhi, Jaipur, Udaipur, Mumbai</div>
+    <div class="inc-no">✗ Gatimaan Express train upgrade (Delhi ↔ Agra, instead of car) — +$120/couple, Venmo @dsingh1963 with reason "train"</div>
     <div class="inc-no">✗ International flights (RSW-DEL, BOM-RSW) — booked separately, $7,954.09</div>
     <div class="inc-no">✗ Lunches and dinners not specifically pre-paid — reservations secured, but paid at time of dining</div>
     <div class="inc-no">✗ Shopping and personal purchases</div>
@@ -522,10 +536,11 @@
       <tr><td>Land package</td><td>$8,150/person × 2, double occupancy</td><td class="amount">$16,300.00</td></tr>
       <tr><td>International flights</td><td>Delta GV5C9D — Upper Class out / World Business return</td><td class="amount">$7,954.09</td></tr>
       <tr><td>Local Cooking Experience</td><td>Jaipur — confirmed at Virasat Heritage Restaurant</td><td class="amount">$1,400.00</td></tr>
+      <tr><td>Train upgrade — Delhi↔Agra</td><td>Gatimaan Express instead of car (TJ's request) — Venmo @dsingh1963, reason "train"</td><td class="amount">$120.00</td></tr>
       <tr><td>Travel insurance</td><td>Travelex — amount TBD</td><td class="amount">—</td></tr>
       <tr><td>Meals not pre-paid</td><td>Most lunches/dinners — reservations secured, paid at time of dining</td><td class="amount">—</td></tr>
     </tbody>
-    <tfoot><tr><td colspan="2">Estimated Total (excluding insurance & incidental dining)</td><td class="amount">$25,654.09</td></tr></tfoot>
+    <tfoot><tr><td colspan="2">Estimated Total (excluding insurance & incidental dining)</td><td class="amount">$25,774.09</td></tr></tfoot>
   </table>
   <p style="font-size:11px;color:var(--muted);margin-top:10px">* The $8,150/person land cost is "subject to change due to currency and flight cost until time of booking" per the tour document. Non-refundable restaurant reservation deposits paid in advance by JourneyQuest will be reimbursed as part of the final settlement. Confirm final numbers with Deepak before the deposit deadline.</p>
 </div>
@@ -594,7 +609,7 @@
     <div class="tip-card"><div class="tip-icon">🛂</div><strong>Arrival Has Changed</strong>Gate pickup is no longer possible per new government restrictions. You'll be met after Customs — look for your name on a sign, and keep Sanjeev Sharma and Himani Rohilla's numbers handy.</div>
     <div class="tip-card"><div class="tip-icon">🐘</div><strong>Amber Fort — Jeep, Not Elephant</strong>JourneyQuest defaults to jeep transport up to Amber Fort due to animal welfare concerns, though they can arrange elephant rides if specifically requested.</div>
     <div class="tip-card"><div class="tip-icon">🕌</div><strong>Taj Mahal is Closed Fridays</strong>Your Agra day (Oct 29) is a Thursday, so this isn't a conflict.</div>
-    <div class="tip-card"><div class="tip-icon">🚆</div><strong>The Agra Day Is by Train</strong>The Gatimaan Express (Executive Chair Car) covers Delhi↔Agra both ways — a fast, comfortable alternative to the ~4-5 hour drive originally quoted.</div>
+    <div class="tip-card"><div class="tip-icon">🚆</div><strong>The Agra Day Is by Train</strong>The Gatimaan Express (Executive Chair Car) covers Delhi↔Agra both ways, replacing the original car transfer at TJ\'s request. The upgrade costs an extra $120 per couple — Venmo @dsingh1963 with "train" as the reason.</div>
     <div class="tip-card"><div class="tip-icon">🛕</div><strong>Temple Etiquette</strong>Shoes off before entering most temples. Shoulders and knees covered. A light scarf is useful for impromptu head coverings.</div>
     <div class="tip-card"><div class="tip-icon">🔐</div><strong>Akshardham Security</strong>Bags and electronics aren't allowed inside — budget the full hour for entry, security, and the visit.</div>
     <div class="tip-card"><div class="tip-icon">💧</div><strong>Water & Food Safety</strong>Premium bottled water is included throughout. Stick to bottled/filtered water even for teeth-brushing. Hotel/curated restaurants are very safe; street food is tempting but higher risk.</div>
@@ -634,6 +649,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }, { passive: false });
     });
   });
+  var hero=document.getElementById('hero'), ht=document.getElementById('heroToggle');
+  function setHero(collapsed){hero.classList.toggle('collapsed',collapsed);ht.setAttribute('aria-expanded',String(!collapsed));ht.textContent=collapsed?'Details ▾':'Hide ▴';}
+  ht.addEventListener('click',function(){setHero(!hero.classList.contains('collapsed'));});
+  buttons.forEach(function(b){b.addEventListener('click',function(){setHero(true);});});
   activateTab('overview');
 });
 </script>
