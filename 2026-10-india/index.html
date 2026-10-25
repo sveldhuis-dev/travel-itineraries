@@ -99,6 +99,57 @@
     .hero-detail .hero-travelers{margin-bottom:12px}
   }
   @media(max-width:480px){.day-card{padding:16px 14px}}
+#panel-rhythm{--s-sights:#2a78d6;--s-shop:#eb6834;--s-travel:#1baf7a;--s-meals:#eda100;--s-down:#e87ba4;--s-sleep:#008300}
+#panel-rhythm .tabs{display:flex;gap:6px;margin:0 0 10px}
+#panel-rhythm .tab{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:6px;border:1px solid var(--border);background:#fff;color:#5a4f40;cursor:pointer}
+#panel-rhythm .tab[aria-pressed="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+#panel-rhythm .tab:focus-visible{outline:2px solid var(--s-sights);outline-offset:2px}
+#panel-rhythm .tl-scroll{overflow-x:auto}
+#panel-rhythm .tl-in{min-width:820px}
+#panel-rhythm .tl-top .ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);padding-bottom:4px}
+#panel-rhythm .axis.tl-top{padding-top:0}
+#panel-rhythm .track{position:relative;height:32px;background:transparent}
+#panel-rhythm .track>i{position:absolute;top:0;bottom:0;width:1px;background:var(--border)}
+#panel-rhythm .blk{position:absolute;top:0;bottom:0;background:var(--c);border-right:2px solid #fff;border-radius:3px;display:flex;align-items:center;padding:0 5px;color:#fff;font-size:11px;font-weight:600;overflow:hidden;cursor:default}
+#panel-rhythm .blk.dk{color:#1c1b19}
+#panel-rhythm .blk span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#panel-rhythm .blk:hover,#panel-rhythm .blk:focus-visible{outline:2px solid var(--ink);outline-offset:1px;z-index:3}
+@media (max-width:520px){#panel-rhythm .tl-in .row{grid-template-columns:78px 1fr}}
+#panel-rhythm .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:22px}
+#panel-rhythm .stat{background:#fff;border:1px solid var(--border);border-radius:6px;padding:10px 12px;min-width:0}
+#panel-rhythm .stat .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px}
+#panel-rhythm .sw{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none}
+#panel-rhythm .stat .v{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-variant-numeric:tabular-nums;line-height:1.2}
+#panel-rhythm .stat .u{font-size:13px;color:#5a4f40}
+#panel-rhythm .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 14px;font-size:13px;color:#5a4f40}
+#panel-rhythm .legend span{display:inline-flex;align-items:center;gap:6px}
+#panel-rhythm .chart{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 14px 10px}
+#panel-rhythm .row{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:center;padding:7px 0;border-top:1px solid var(--border)}
+#panel-rhythm .row:first-of-type{border-top:0}
+#panel-rhythm .lab{min-width:0}
+#panel-rhythm .lab b{display:block;font-size:14px;font-weight:600}
+#panel-rhythm .lab i{display:block;font-style:normal;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#panel-rhythm .bar{display:flex;gap:2px;height:30px}
+#panel-rhythm .seg:first-child{border-radius:4px 0 0 4px}.seg:last-child{border-radius:0 4px 4px 0}
+#panel-rhythm .seg.dk{color:#1c1b19}
+#panel-rhythm .seg:hover,#panel-rhythm .seg:focus-visible{outline:2px solid var(--ink);outline-offset:1px;z-index:2}
+#panel-rhythm .axis{display:grid;grid-template-columns:116px 1fr;gap:12px;font-size:11px;color:var(--muted);padding-top:4px}
+#panel-rhythm .axis div:last-child{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.rh-tip{position:fixed;z-index:20;pointer-events:none;background:var(--ink);color:var(--cream);padding:6px 9px;border-radius:5px;font-size:12.5px;max-width:240px;line-height:1.35;opacity:0}
+.rh-tip.on{opacity:1}
+#panel-rhythm .notes{margin:26px 0 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 28px}
+#panel-rhythm .notes h2,#panel-rhythm .tbl h2{font-family:'Playfair Display',Georgia,serif;font-size:19px;margin:0 0 6px;font-weight:600}
+#panel-rhythm .notes p{margin:0;color:#5a4f40;font-size:14.5px}
+#panel-rhythm .tbl{margin-top:26px}
+#panel-rhythm .tbl summary{cursor:pointer;font-weight:600;padding:6px 0}
+#panel-rhythm .tw{overflow-x:auto;border:1px solid var(--border);border-radius:8px;background:#fff;margin-top:8px}
+#panel-rhythm table{border-collapse:collapse;width:100%;min-width:620px;font-size:13.5px;font-variant-numeric:tabular-nums}
+#panel-rhythm th,#panel-rhythm td{padding:7px 10px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+#panel-rhythm th:first-child,#panel-rhythm td:first-child{text-align:left}
+#panel-rhythm th{font-size:12px;color:var(--muted);font-weight:600}
+#panel-rhythm tr:last-child td{border-bottom:0}
+#panel-rhythm .fine{color:var(--muted);font-size:12.5px;margin-top:14px;max-width:70ch}
+@media (max-width:520px){#panel-rhythm .row,#panel-rhythm .axis{grid-template-columns:78px 1fr;gap:8px}#panel-rhythm .seg{font-size:10.5px}#panel-rhythm .lab i{display:none}}
 </style>
 </head>
 <body>
@@ -123,6 +174,7 @@
     <button class="tab-btn" data-tab="overview">Overview</button>
     <button class="tab-btn" data-tab="flights">✈️ Flights</button>
     <button class="tab-btn" data-tab="transport">🚗 Transport</button>
+    <button class="tab-btn" data-tab="rhythm">📊 Day Rhythm</button>
     <button class="tab-btn" data-tab="day1">Delhi</button>
     <button class="tab-btn" data-tab="day2">Agra</button>
     <button class="tab-btn" data-tab="day3">Jaipur</button>
@@ -144,18 +196,18 @@
     ✅ <strong>Itinerary finalized</strong> — JourneyQuest sent the official day-by-day plan on Sept 16. Times, restaurants, and domestic flight numbers throughout this site are now confirmed (no longer reconstructed). One open note: the official plan's arrival-day header reads "26 October," while your confirmed Delta flight lands ~2:40 AM — i.e., technically just after midnight into the 27th. Functionally the same very-early arrival; noted on the Delhi tab.
   </div>
   <div class="info-alert" style="margin-bottom:20px">
-    💡 <strong>Open items:</strong> E-Visa and E-Arrival Card still needed (links below). Deposit at Fifth Third still pending. Install WhatsApp ahead of the group chat Deepak is setting up. Let Deepak know if you'd like any Asmi by Oberoi spa treatments pre-booked at the Oberoi hotels.
+    💡 <strong>Open items:</strong> E-Visas are received for both of you. Still to do: print both e-Visa approvals, complete the E-Arrival Card (opens 72 hrs before landing), complete the mandatory health form TJ mentioned, and reply to Oberoi Rajvilas with your guest details. Done: Venmo, WhatsApp, Fifth Third deposit. Let Deepak know if you'd like any Asmi by Oberoi spa treatments pre-booked at the Oberoi hotels.
   </div>
 
   <div class="grid2">
     <div class="card" style="border-color:var(--rust)">
       <div class="card-label">⚠️ Open Action Items</div>
       <div style="font-size:12.5px;line-height:1.9">
-        📋 Apply for E-Visa (e-tourist) — indianvisaonline.gov.in/evisa<br>
+        ✅ E-Visas received for Stephen and Leslie — print both approvals to carry<br>
         📋 Complete E-Arrival Card — up to 72 hrs before landing — indianvisaonline.gov.in/earrival<br>
-        📱 Install WhatsApp — Deepak is creating a group for in-country coordination<br>
-        💰 Deposit check at Fifth Third — per Deepak conversation<br>
-        💸 <strong>Venmo $120 per couple to @dsingh1963</strong> — reason: "train" (Delhi→Agra train upgrade)<br>
+        📋 Complete the mandatory health form required before entry (TJ’s Oct 10 note; ask TJ or Deepak for the link)<br>
+        🏨 Reply to Oberoi Rajvilas guest-information request (ID, arrival time, bed preference, allergies)<br>
+        ✅ WhatsApp, Fifth Third deposit, and Venmo $120 (train) are done<br>
         💵 Confirm whether $8,150/person land cost includes the int'l flights or is separate<br>
         💆 Optional: let Deepak know if you want any Asmi by Oberoi spa treatments pre-booked
       </div>
@@ -219,7 +271,7 @@
     <div class="inc-no">✗ International flights (RSW-DEL, BOM-RSW) — booked separately, $7,954.09</div>
     <div class="inc-no">✗ Lunches and dinners not specifically pre-paid — reservations secured, but paid at time of dining</div>
     <div class="inc-no">✗ Shopping and personal purchases</div>
-    <div class="inc-no">✗ Local Cooking Experience in Jaipur — now confirmed at Virasat Heritage Restaurant on Nov 2 (fee per original quote: $1,400)</div>
+    <div class="inc-no">✗ Jhar Aravali Village &amp; Cultural Experience in Jaipur — cooking demo, folk dance, home visit &amp; lunch on Nov 2 (fee per original quote: $1,400)</div>
     <div class="inc-no">✗ Travel insurance — Travelex, booked separately</div>
   </div>
 
@@ -262,11 +314,11 @@
       <span style="font-family:'DM Mono',monospace;font-weight:600;color:var(--moss)">Upper Class</span>
     </div>
     <div class="card-label" style="margin-top:4px">Outbound — Sunday Oct 25 → Tuesday Oct 27 <span class="badge rust" style="margin-left:6px">⚠️ Schedule Change</span></div>
-    <div class="flight-row"><div class="flight-num">DL 2430</div><div class="flight-route">Fort Myers (RSW) → New York (JFK)</div><div class="flight-time">12:35 PM → 3:30 PM</div></div>
+    <div class="flight-row"><div class="flight-num">DL 2430</div><div class="flight-route">Fort Myers (RSW) → New York (JFK)</div><div class="flight-time">12:35 PM → 3:27 PM</div></div>
     <div class="flight-row"><div class="flight-num">DL 5990</div><div class="flight-route">New York (JFK) → London (LHR)</div><div class="flight-time">10:10 PM → 9:25 AM +1</div></div>
     <div class="flight-row"><div class="flight-num">DL 5948</div><div class="flight-route">London (LHR) → Delhi (DEL)</div><div class="flight-time">12:30 PM → 2:40 AM +1</div></div>
     <div style="margin-top:10px;font-size:12px;color:var(--muted)">2 stops · 28h 35m total · Layovers: 6h40m at JFK, 3h5m at LHR · DL5990 & DL5948 operated by Virgin Atlantic</div>
-    <div class="tl-tip" style="margin-top:10px">💡 The RSW→JFK leg changed to an earlier departure (DL 2430, 12:35 PM) with a long 6h40m layover at JFK — arrival in Delhi is still ~2:40 AM Tuesday Oct 27. Seats: Stephen 2C, Leslie 2D (Delta First Classic). eTickets #0062434394068 / #...070.</div>
+    <div class="tl-tip" style="margin-top:10px">💡 The RSW→JFK leg changed to an earlier departure (DL 2430, 12:35 PM) with a long 6h40m layover at JFK — arrival in Delhi is still ~2:40 AM Tuesday Oct 27. Seats: Stephen 2C, Leslie 2D (Delta First Classic). eTickets #0062471287852 / #...854.</div>
   </div>
 
   <div class="flight-option confirmed">
@@ -275,18 +327,18 @@
       <span style="font-family:'DM Mono',monospace;font-weight:600;color:var(--moss)">World Business</span>
     </div>
     <div class="card-label" style="margin-top:4px">Return — Sunday Nov 8 <span class="badge rust" style="margin-left:6px">⚠️ Schedule Change</span></div>
-    <div class="flight-row"><div class="flight-num">DL 9495</div><div class="flight-route">Mumbai (BOM) → Amsterdam (AMS)</div><div class="flight-time">2:30 AM → 7:45 AM</div></div>
+    <div class="flight-row"><div class="flight-num">DL 9495</div><div class="flight-route">Mumbai (BOM) → Amsterdam (AMS)</div><div class="flight-time">2:30 AM → 7:50 AM</div></div>
     <div class="flight-row"><div class="flight-num">DL 0073</div><div class="flight-route">Amsterdam (AMS) → Atlanta (ATL)</div><div class="flight-time">11:10 AM → 3:00 PM</div></div>
     <div class="flight-row"><div class="flight-num">DL 1124</div><div class="flight-route">Atlanta (ATL) → Fort Myers (RSW)</div><div class="flight-time">5:11 PM → 6:51 PM</div></div>
-    <div style="margin-top:10px;font-size:12px;color:var(--muted)">2 stops · 26h 51m total · Layovers: 3h25m at AMS, 2h11m at ATL · DL9495 operated by KLM (Boeing 777-300ER)</div>
+    <div style="margin-top:10px;font-size:12px;color:var(--muted)">2 stops · 26h 51m total · Layovers: 3h20m at AMS, 2h11m at ATL · DL9495 operated by KLM (Boeing 777-300ER)</div>
     <div class="tl-tip" style="margin-top:10px">💡 The routing home changed — it now connects through <strong>Atlanta</strong> instead of JFK. Mumbai departure is still 2:30 AM Sunday Nov 8, just after midnight following your last evening in Mumbai (Nov 7). See Mumbai tab for the day-of plan.</div>
   </div>
 
   <div class="card" style="margin-top:16px">
     <div class="card-label">Confirmation — GV5C9D</div>
     <div style="font-size:12.5px;line-height:1.9">
-      👤 <strong>Stephen Alphons Veldhuis</strong> — Diamond Medallion/Elite Plus — Seat 2C — eTicket #0062434394068<br>
-      👤 <strong>Leslie K Veldhuis</strong> — Gold Medallion/Elite Plus — Seat 2D — eTicket #0062434394070<br>
+      👤 <strong>Stephen Alphons Veldhuis</strong> — Diamond Medallion/Elite Plus — Seat 2C — eTicket #0062471287852<br>
+      👤 <strong>Leslie K Veldhuis</strong> — Gold Medallion/Elite Plus — Seat 2D — eTicket #0062471287854<br>
       Round trip, 2 passengers · Non-refundable · Ticket expires May 29, 2027
     </div>
   </div>
@@ -323,18 +375,18 @@
     <div class="card-label">At a Glance</div>
     <div style="font-size:12.5px;line-height:1.9">
       ✈️ <strong>6 international flights</strong> (3 out, 3 home) · ✈️ <strong>3 domestic flights</strong> · 🚆 <strong>1 train day trip</strong> (Delhi↔Agra)<br>
-      🚐 Private vehicle with driver in every city · ⛵ Speedboat (Elephanta) · 🛺 Bicycle rickshaw (Old Delhi) · 🚙 Jeep (Amber Fort) · 🎈 Balloon (Jaipur)<br>
+      🚐 Private vehicle with driver in every city · ⛵ Speedboat (Elephanta) · 🛺 Bicycle rickshaw (Old Delhi) · 🚙 Jeep (Amber Fort)<br>
       📞 In-country contacts: Sanjeev Sharma +91 99149 4401 · Himani Rohilla +91 87084 55986
     </div>
   </div>
 
   <div class="card" style="margin-bottom:12px">
     <div class="card-label">Oct 25–27 · Outbound (Delta GV5C9D)</div>
-    <div class="flight-row"><div class="flight-num" style="min-width:78px">Sun Oct 25</div><div class="flight-route">DL 2430 · RSW → JFK</div><div class="flight-time">12:35 PM → 3:30 PM</div></div>
+    <div class="flight-row"><div class="flight-num" style="min-width:78px">Sun Oct 25</div><div class="flight-route">DL 2430 · RSW → JFK</div><div class="flight-time">12:35 PM → 3:27 PM</div></div>
     <div class="flight-row"><div class="flight-num" style="min-width:78px">Sun Oct 25</div><div class="flight-route">DL 5990 · JFK → London (LHR)</div><div class="flight-time">10:10 PM → 9:25 AM</div></div>
     <div class="flight-row"><div class="flight-num" style="min-width:78px">Mon Oct 26</div><div class="flight-route">DL 5948 · LHR → Delhi (DEL, Terminal 3)</div><div class="flight-time">12:30 PM → 2:40 AM +1</div></div>
     <div class="flight-row"><div class="flight-num" style="min-width:78px">Tue Oct 27</div><div class="flight-route">Delhi airport → The Oberoi, New Delhi</div><div class="flight-time">~2:40 AM on arrival</div></div>
-    <div style="margin-top:8px;font-size:12px;color:var(--muted)">DL 5990 and DL 5948 are operated by Virgin Atlantic. Per Deepak, you are met <strong>after Customs</strong> (not at the gate) by a rep holding your name, who helps with luggage and the private transfer to the hotel.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">DL 5990 and DL 5948 are operated by Virgin Atlantic (also numbered VS 10 and VS 302 on the airline’s own site and app). Per Deepak, you are met <strong>after Customs</strong> (not at the gate) by a rep holding your name, who helps with luggage and the private transfer to the hotel.</div>
   </div>
   <div class="card" style="margin-bottom:12px">
     <div class="card-label">Delhi · Oct 27–28</div>
@@ -361,9 +413,8 @@
   </div>
   <div class="card" style="margin-bottom:12px">
     <div class="card-label">Jaipur → Udaipur · Mon Nov 2</div>
-    <div class="flight-row"><div class="flight-num" style="min-width:78px">7:00 AM</div><div class="flight-route">Hot air balloon pickup from Oberoi Rajvilas</div><div class="flight-time">45–60 min ride</div></div>
-    <div class="flight-row"><div class="flight-num" style="min-width:78px">11:30 AM</div><div class="flight-route">Check-out → Virasat Heritage Restaurant (cooking)</div><div class="flight-time">12:00 PM</div></div>
-    <div class="flight-row"><div class="flight-num" style="min-width:78px">After lunch</div><div class="flight-route">Drive to Jaipur airport</div><div class="flight-time">after 3:30 PM lunch</div></div>
+    <div class="flight-row"><div class="flight-num" style="min-width:78px">11:00 AM</div><div class="flight-route">Check-out → Jhar Aravali Village &amp; Cultural Experience</div><div class="flight-time">12:00 PM</div></div>
+    <div class="flight-row"><div class="flight-num" style="min-width:78px">After lunch</div><div class="flight-route">Drive to Jaipur airport</div><div class="flight-time"></div></div>
     <div class="flight-row"><div class="flight-num" style="min-width:78px">Flight</div><div class="flight-route">Jaipur (JAI) → Udaipur (UDR) · non-stop, 1 hr</div><div class="flight-time">5:30 PM → 6:30 PM</div></div>
     <div class="flight-row"><div class="flight-num" style="min-width:78px">Tue Nov 3</div><div class="flight-route">Boat cruise on Lake Pichola at sundown</div><div class="flight-time">5:30 PM – 7:00 PM</div></div>
     <div style="margin-top:8px;font-size:12px;color:var(--muted)">The itinerary doesn’t give an airline or flight number for the Jaipur–Udaipur flight.</div>
@@ -381,12 +432,38 @@
     <div class="flight-row"><div class="flight-num" style="min-width:78px">Sat Nov 7</div><div class="flight-route">Taj check-out 1:00 PM; luggage stays in the buses</div><div class="flight-time"></div></div>
     <div class="flight-row"><div class="flight-num" style="min-width:78px">4:30 PM</div><div class="flight-route">Taj → JW Marriott Mumbai Sahar (near airport)</div><div class="flight-time">dinner 8:00 PM</div></div>
     <div class="flight-row"><div class="flight-num" style="min-width:78px">Late night</div><div class="flight-route">Individual transfer to BOM (Terminal 2), timed to your flight</div><div class="flight-time">arranged by JourneyQuest</div></div>
-    <div class="flight-row"><div class="flight-num" style="min-width:78px">Sun Nov 8</div><div class="flight-route">DL 9495 · Mumbai → Amsterdam (KLM 777-300ER)</div><div class="flight-time">2:30 AM → 7:45 AM</div></div>
+    <div class="flight-row"><div class="flight-num" style="min-width:78px">Sun Nov 8</div><div class="flight-route">DL 9495 · Mumbai → Amsterdam (KLM 777-300ER)</div><div class="flight-time">2:30 AM → 7:50 AM</div></div>
     <div class="flight-row"><div class="flight-num" style="min-width:78px">Sun Nov 8</div><div class="flight-route">DL 0073 · Amsterdam → Atlanta</div><div class="flight-time">11:10 AM → 3:00 PM</div></div>
     <div class="flight-row"><div class="flight-num" style="min-width:78px">Sun Nov 8</div><div class="flight-route">DL 1124 · Atlanta → Fort Myers</div><div class="flight-time">5:11 PM → 6:51 PM</div></div>
     <div style="margin-top:8px;font-size:12px;color:var(--muted)">Layovers: 3h25m Amsterdam, 2h11m Atlanta. Total 26h51m.</div>
   </div>
 </div>
+</div>
+
+<!-- RHYTHM -->
+<div id="panel-rhythm" class="panel">
+<div class="wrap">
+  <div class="section-label">Big picture</div><h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:6px">Your trip, hour by hour</h2>
+  <p class="sub" style="color:#5a4f40;margin-bottom:18px;max-width:62ch">How each day of the land tour splits across sightseeing, shopping, travel, meals, downtime and sleep. Oct 25 to Nov 8, with the flights out and home, built from the Sept 16 final itinerary and your Delta booking.</p>
+
+  <div class="stats" id="rh-stats"></div>
+  <div class="legend" id="rh-legend"></div>
+
+  <div class="tabs" role="group" aria-label="Chart view"><button class="tab" data-v="time" aria-pressed="true">Timeline, in order</button><button class="tab" data-v="hours" aria-pressed="false">Hours per day</button></div>
+  <div class="chart" id="rh-chart" aria-label="Stacked bar chart: hours per day in each activity category"></div>
+
+  <div class="notes">
+    <div><h2>Where the days are full</h2><p>Oct 28 in Delhi (5.5 h of sights, from Humayun's Tomb to Akshardham) and Oct 31 in Jaipur (6.2 h, Amber Fort through the evening aarti) are the heaviest sightseeing days. Oct 29 is the longest travel day at 8 h, with both train legs to Agra and back.</p></div>
+    <div><h2>Where it breathes</h2><p>Nov 4 in Udaipur has about 7 h of open time, including a free afternoon and evening. Nov 7 in Mumbai also has about 7 h, and the first Delhi afternoon is open if you take the rest group.</p></div>
+    <div><h2>Sleep is shorter than it looks</h2><p>Oct 27 starts with a 2:40 AM landing, so that day has only about 5 h of sleep. Oct 29 starts with a 6:30 AM breakfast, and Nov 7 ends with a late airport transfer for the 2:25 AM flight home.</p></div>
+  </div>
+
+  <details class="tbl"><summary>Show as a table</summary>
+    <div class="tw"><table id="rh-table"></table></div>
+  </details>
+  <p class="fine">Hours are estimates from the printed schedule. Travel includes drives, flights, trains and airport waiting. Meals use the scheduled lunch and dinner windows plus breakfast. Downtime is free time at the hotel, getting ready and winding down. Sleep assumes you are in bed about 11 PM and up about an hour before breakfast. Oct 27 counts the shopping afternoon. If you take the rest group, move 3 h from Shopping to Downtime. The timeline shows the clock hour of each activity, from midnight at the left to midnight at the right. The three flight days (Oct 25, Oct 26, Nov 8) are mostly travel and their clock times are approximate across time zones; sleep on those days is an in-flight estimate for the lie-flat seats. Averages at the top cover the land tour only (Oct 27 to Nov 7). Outbound is DL 2430, VS 10 and VS 302 (RSW to JFK, London, Delhi). Return is DL 9495, DL 0073 and DL 1124 (Mumbai to Amsterdam, Atlanta and Fort Myers), landing 6:51 PM on Nov 8.</p>
+</div>
+<div class="rh-tip" id="rh-tip" role="tooltip"></div>
 </div>
 
 <!-- DELHI -->
@@ -397,7 +474,7 @@
   <div class="day-card">
     <div class="day-header"><div class="day-date">Day 1</div><div><div class="day-name">Tue Oct 27 · Arrival</div></div><div class="day-theme">Welcome to India</div></div>
     <div class="timeline">
-      <div class="tl-item"><div class="tl-dot rust"></div><div class="tl-time">~2:40 AM</div><div class="tl-title">✈️ Arrive Delhi (Indira Gandhi Int'l)</div><div class="tl-desc">⚠️ <strong>Updated per Deepak (Sept 16):</strong> gate pickup is no longer permitted under new government restrictions. After clearing Customs, look for a JourneyQuest representative holding your name — personalized escort assistance through the arrival process, then a premium private transfer to The Oberoi, New Delhi, where a traditional welcome with aarti & tika ceremony awaits. In-country contacts: Sanjeev Sharma (+91 99149 4401), Himani Rohilla (+91 87084 55986).</div><div class="tl-tip">💡 Dedicated time for rest and relaxation is built in after arrival.</div></div>
+      <div class="tl-item"><div class="tl-dot rust"></div><div class="tl-time">~2:40 AM</div><div class="tl-title">✈️ Arrive Delhi (Indira Gandhi Int'l)</div><div class="tl-desc">⚠️ <strong>Updated per Deepak (Sept 16):</strong> gate pickup is no longer permitted under new government restrictions. After clearing Customs, look for a JourneyQuest representative holding your name — personalized escort assistance through the arrival process, then a premium private transfer to The Oberoi, New Delhi, where a traditional welcome with aarti & tika ceremony awaits. In-country contacts: Sanjeev Sharma (+91 99149 4401), Himani Rohilla (+91 87084 55986).</div><div class="tl-tip">💡 Dedicated time for rest and relaxation is built in after arrival. Two couples in the group are arriving early (Oct 24 and Oct 25) and will already be checked in at The Oberoi.</div></div>
     </div>
   </div>
 
@@ -423,11 +500,11 @@
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">10:30 AM</div><div class="tl-title">Humayun's Tomb</div><div class="tl-desc">UNESCO World Heritage Site — commissioned 1569-70 as a garden tomb for Emperor Humayun. Its symmetry, red sandstone façades, and Persian-style charbagh gardens directly inspired the Taj Mahal.</div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">11:15 AM</div><div class="tl-title">Drive to Old Delhi</div><div class="tl-desc">~30 min drive, passing the Red Fort's imposing exterior — the great Mughal citadel built by Emperor Shah Jahan.</div></div>
       <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">11:45 AM–1:45 PM</div><div class="tl-title">Old Delhi by Bicycle Rickshaw</div><div class="tl-desc">Chandni Chowk (historic bazaar), Paranthe Wali Gali (legendary stuffed-flatbread lane), Kinari Bazaar (wedding finery and trimmings), Khari Baoli (Asia's largest wholesale spice market). ~2 hours of immersive Old Delhi heritage.</div></div>
-      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">2:00 PM</div><div class="tl-title">Lunch — Lakhori, Haveli Dharampura</div><div class="tl-desc">Refined Mughlai cuisine within a beautifully restored heritage haveli. <span style="color:var(--muted)">(Option 2: Juggernaut, Connaught Place — South/North Indian vegetarian.)</span></div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">2:00 PM</div><div class="tl-title">Lunch — Juggernaut</div><div class="tl-desc">Fire Brigade Lane, Barakhamba Road, Connaught Place — South &amp; North Indian vegetarian cuisine: dosas, idlis, uttapams, Chettinad dishes and traditional favourites.</div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">3:30–4:30 PM</div><div class="tl-title">Raj Ghat — Mahatma Gandhi Memorial</div><div class="tl-desc">The serene memorial marking Gandhi's cremation site, set amid landscaped gardens — a quiet, reflective pause.</div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">4:45–6:30 PM</div><div class="tl-title">Akshardham Temple</div><div class="tl-desc">One of the most magnificent Hindu temple complexes in the world. Security is thorough — allow the full hour. Bags and electronics are not permitted inside.</div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">7:20 PM</div><div class="tl-title">Return to The Oberoi</div></div>
-      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">8:30 PM</div><div class="tl-title">Dinner — Raga</div><div class="tl-desc">Chef Gaggan Anand's avant-garde fine dining — reimagining Indian flavours through a contemporary lens, innovative tasting menus.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">8:30 PM</div><div class="tl-title">Dinner — Le Cirque</div><div class="tl-desc">Iconic fine dining — elegant French-Italian cuisine, impeccable service, classic European flavours in a setting of timeless elegance.</div></div>
     </div>
   </div>
 </div>
@@ -461,7 +538,7 @@
 <!-- JAIPUR -->
 <div id="panel-day3" class="panel">
 <div class="wrap">
-  <div class="hotel-banner">🏨 <strong>The Oberoi Rajvilas, Jaipur</strong> · 3 Nights</div>
+  <div class="hotel-banner">🏨 <strong>The Oberoi Rajvilas, Jaipur</strong> · 3 Nights · Confirmation #30350494</div>
 
   <div class="day-card">
     <div class="day-header"><div class="day-date">Day 5</div><div><div class="day-name">Fri Oct 30</div></div><div class="day-theme">Pink City Arrival</div></div>
@@ -511,13 +588,11 @@
   <div class="hotel-banner">🏨 <strong>The Oberoi Udaivilas, Udaipur</strong> · 3 Nights</div>
 
   <div class="day-card">
-    <div class="day-header"><div class="day-date">Day 8</div><div><div class="day-name">Mon Nov 2</div></div><div class="day-theme">Balloon Ride → Udaipur</div></div>
+    <div class="day-header"><div class="day-date">Day 8</div><div><div class="day-name">Mon Nov 2</div></div><div class="day-theme">Village Experience → Udaipur</div></div>
     <div class="timeline">
-      <div class="tl-item"><div class="tl-dot rust"></div><div class="tl-time">7:00 AM</div><div class="tl-title">🎈 Hot Air Balloon Experience</div><div class="tl-desc">Sunrise flight over Jaipur's skyline — landscapes, villages, hidden palaces. Ride duration 45–60 minutes.</div></div>
-      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">9:20–10:20 AM</div><div class="tl-title">Breakfast, back at the hotel</div></div>
-      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">11:30 AM</div><div class="tl-title">Check out · Drive to Virasat Heritage Restaurant</div></div>
-      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">12:00 PM</div><div class="tl-title">Traditional Rajasthani Cooking Experience</div><div class="tl-desc">Confirmed location: Virasat Heritage Restaurant (village setting). Learn traditional recipes and techniques, then enjoy the meal you helped prepare.</div></div>
-      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">2:30–3:30 PM</div><div class="tl-title">Lunch — Virasat Heritage Restaurant</div><div class="tl-desc">Traditional Rajasthani lunch, vibrant cultural ambience.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">7:30–8:30 AM</div><div class="tl-title">Breakfast at the hotel</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">11:00 AM</div><div class="tl-title">Relaxed morning · Check-out</div><div class="tl-desc">Morning at leisure, then check-out ahead of departure for the cultural experience.</div></div>
+      <div class="tl-item"><div class="tl-dot gold"></div><div class="tl-time">12:00 PM</div><div class="tl-title">Jhar Aravali Village &amp; Cultural Experience</div><div class="tl-desc">Traditional cooking demonstration, folk dance performance, and a home visit with a glimpse of local life — plus a traditional Indian wedding presentation, a full-course traditional lunch, and a keepsake gift for each guest.</div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">After lunch</div><div class="tl-title">Drive to Jaipur Airport</div></div>
       <div class="tl-item"><div class="tl-dot rust"></div><div class="tl-time">5:30 PM</div><div class="tl-title">✈️ Flight — Jaipur (JAI) → Udaipur (UDR)</div><div class="tl-desc">Non-stop, 1 hour. Arrives 6:30 PM.</div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">7:30 PM</div><div class="tl-title">Check-in — The Oberoi Udaivilas</div><div class="tl-desc">Relax and freshen up before the evening's special dinner.</div></div>
@@ -612,7 +687,7 @@
     <tbody>
       <tr><td>Land package</td><td>$8,150/person × 2, double occupancy</td><td class="amount">$16,300.00</td></tr>
       <tr><td>International flights</td><td>Delta GV5C9D — Upper Class out / World Business return</td><td class="amount">$7,954.09</td></tr>
-      <tr><td>Local Cooking Experience</td><td>Jaipur — confirmed at Virasat Heritage Restaurant</td><td class="amount">$1,400.00</td></tr>
+      <tr><td>Cultural Experience</td><td>Jaipur — Jhar Aravali Village (cooking, folk dance, lunch)</td><td class="amount">$1,400.00</td></tr>
       <tr><td>Train upgrade — Delhi↔Agra</td><td>Gatimaan Express instead of car (TJ's request) — Venmo @dsingh1963, reason "train"</td><td class="amount">$120.00</td></tr>
       <tr><td>Travel insurance</td><td>Travelex — amount TBD</td><td class="amount">—</td></tr>
       <tr><td>Meals not pre-paid</td><td>Most lunches/dinners — reservations secured, paid at time of dining</td><td class="amount">—</td></tr>
@@ -635,7 +710,7 @@
       <li>Modest clothing for temples — shoulders/knees covered</li>
       <li>Comfortable cotton/linen shirts for Mumbai heat</li>
       <li>Nicer outfits for the two prepaid special dinners (Jaipur, Udaipur) and heritage-restaurant dinners</li>
-      <li>Scarf or shawl (temple visits, AC, dust, the hot air balloon ride)</li>
+      <li>Scarf or shawl (temple visits, AC, dust)</li>
     </ul></div>
     <div class="pack-card"><h3>Footwear</h3><ul>
       <li>Comfortable walking shoes — forts and Old Delhi rickshaw route have real walking</li>
@@ -652,7 +727,7 @@
     </ul></div>
     <div class="pack-card"><h3>Photography</h3><ul>
       <li>Camera + extra batteries</li>
-      <li>Wide angle lens — Taj Mahal, forts, palaces, hot air balloon</li>
+      <li>Wide angle lens — Taj Mahal, forts, palaces</li>
       <li>Extra memory cards</li>
       <li>Portable charger</li>
     </ul></div>
@@ -732,6 +807,101 @@ document.addEventListener('DOMContentLoaded', function() {
   buttons.forEach(function(b){b.addEventListener('click',function(){setHero(true);});});
   activateTab('overview');
 });
+</script>
+<script>
+(function(){
+
+const CATS=[
+ {k:"sights",n:"Sightseeing & culture",c:"var(--s-sights)",dk:false},
+ {k:"shop",n:"Shopping",c:"var(--s-shop)",dk:false},
+ {k:"travel",n:"Travel & transfers",c:"var(--s-travel)",dk:false},
+ {k:"meals",n:"Meals",c:"var(--s-meals)",dk:true},
+ {k:"down",n:"Downtime",c:"var(--s-down)",dk:true},
+ {k:"sleep",n:"Sleep",c:"var(--s-sleep)",dk:false}
+];
+// block = [start hour, end hour, category index, label]  (0 sights, 1 shop, 2 travel, 3 meals, 4 down, 5 sleep)
+const S=0,H=1,T=2,M=3,F=4,Z=5;
+const D=[
+ ["Oct 25","Sun","Fly out \u00b7 RSW \u2192 JFK \u2192 London",[[0,6.5,Z,"Sleep"],[6.5,8,F,"Pack and get ready"],[8,9,M,"Breakfast"],[9,10,F,"Leave for airport"],[10,12.58,T,"Airport, check-in"],[12.58,15.5,T,"DL 2430 RSW \u2192 JFK"],[15.5,22.17,T,"JFK layover (6 h 40 m)"],[22.17,24,T,"VS 10 JFK \u2192 London"]],true],
+ ["Oct 26","Mon","Fly \u00b7 London \u2192 Delhi",[[0,1,M,"Dinner onboard"],[1,5,Z,"Sleep onboard (est.)"],[5,8,T,"Overnight flight"],[8,9,M,"Breakfast onboard"],[9,13,T,"Land London, layover"],[13,14,T,"VS 302 departs LHR"],[14,15,M,"Lunch onboard"],[15,24,T,"LHR \u2192 Delhi (lands 2:40 AM)"]],true],
+ ["Oct 27","Tue","Delhi \u00b7 arrival",[[0,4,T,"Land 2:40 AM, customs, hotel"],[4,8,Z,"Sleep"],[8,9,M,"Breakfast"],[9,10,F,"Get ready"],[10,10.5,T,"Drive"],[10.5,11.5,S,"Qutub Minar"],[11.5,12.5,H,"Sabyasachi"],[12.5,14,M,"Lunch, Olive Bar"],[14,17,H,"Khan Market (shopping group)"],[17,18,T,"Drive past India Gate"],[18,20,F,"Rest at hotel"],[20,22,M,"Dinner, Indian Accent"],[22,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Oct 28","Wed","Delhi \u00b7 Old & New",[[0,6.5,Z,"Sleep"],[6.5,7.5,F,"Get ready"],[7.5,8.5,M,"Breakfast"],[8.5,9,F,"Meet in lobby"],[9,9.5,T,"Drive"],[9.5,10.5,H,"Kashmir Loom"],[10.5,11.25,S,"Humayun's Tomb"],[11.25,11.75,T,"Drive to Old Delhi"],[11.75,13.75,S,"Old Delhi by rickshaw"],[13.75,14,T,"Drive"],[14,15.5,M,"Lunch, Juggernaut"],[15.5,16.5,S,"Raj Ghat"],[16.5,16.75,T,"Drive"],[16.75,18.5,S,"Akshardham"],[18.5,19.33,T,"Drive to hotel"],[19.33,20.5,F,"Freshen up"],[20.5,22.5,M,"Dinner, Le Cirque"],[22.5,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Oct 29","Thu","Delhi \u2192 Agra by train",[[0,5.5,Z,"Sleep"],[5.5,6.5,F,"Get ready"],[6.5,7,M,"Breakfast"],[7,9.83,T,"Gatimaan Express to Agra"],[9.83,10.25,T,"Drive to Taj"],[10.25,12.25,S,"Taj Mahal"],[12.25,12.67,T,"Drive"],[12.67,14.17,M,"Lunch, Amarvilas"],[14.17,14.5,T,"Drive"],[14.5,16,S,"Agra Fort"],[16,20,T,"Station, train back, hotel"],[20,20.67,F,"Freshen up"],[20.67,22.17,M,"Dinner, Baoshuan"],[22.17,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Oct 30","Fri","Delhi \u2192 Jaipur flight",[[0,6,Z,"Sleep"],[6,7,F,"Get ready"],[7,8,M,"Breakfast"],[8,9,F,"Pack, check out"],[9,11,T,"Transfer, airport"],[11,11.92,T,"AI2545 DEL \u2192 JAI"],[11.92,14,T,"Arrive, transfer"],[14,15,M,"Lunch, Tattoo Cafe"],[15,15.25,T,"Drive"],[15.25,15.75,S,"Hawa Mahal"],[15.75,16,T,"Drive"],[16,17,S,"Albert Hall Museum"],[17,17.33,T,"Drive"],[17.33,17.67,S,"Jal Mahal"],[17.67,18.5,S,"Old City"],[18.5,19,T,"Transfer to hotel"],[19,20,F,"Check in"],[20,22,M,"Dinner, Bar Palladio"],[22,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Oct 31","Sat","Jaipur \u00b7 Amber & City",[[0,6.5,Z,"Sleep"],[6.5,7.5,F,"Get ready"],[7.5,8.5,M,"Breakfast"],[8.5,9,F,"Meet in lobby"],[9,9.67,T,"Drive"],[9.67,10.67,S,"Panna Meena Ka Kund"],[10.67,10.92,T,"To Amber"],[10.92,13,S,"Amber Fort"],[13,13.33,T,"Drive"],[13.33,14.5,M,"Lunch, 1135 AD"],[14.5,16,S,"City Palace"],[16,16.17,T,"Drive"],[16.17,16.75,S,"Jantar Mantar"],[16.75,17,T,"Drive"],[17,18,S,"Govind Dev Ji evening aarti"],[18,19,T,"Back to hotel"],[19,20,F,"Freshen up"],[20,22,M,"Special dinner, Rajvilas"],[22,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Nov 1","Sun","Jaipur \u00b7 school & shopping",[[0,6.5,Z,"Sleep"],[6.5,7.5,F,"Get ready"],[7.5,8.5,M,"Breakfast"],[8.5,9,F,"Meet in lobby"],[9,9.5,T,"Drive"],[9.5,12.5,S,"School visit"],[12.5,13,T,"Drive"],[13,14,M,"Lunch, Baradari"],[14,14.5,T,"Drive"],[14.5,19,H,"Jaipur shopping"],[19,19.5,T,"Drive"],[19.5,20,F,"Freshen up"],[20,22,M,"Dinner, Rambagh Palace"],[22,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Nov 2","Mon","Jaipur \u2192 Udaipur flight",[[0,6.5,Z,"Sleep"],[6.5,7.5,F,"Get ready"],[7.5,8.5,M,"Breakfast"],[8.5,11,F,"Morning at leisure, check out"],[11,12,T,"Drive to village"],[12,13.5,S,"Jhar Aravali village experience"],[13.5,14.5,M,"Village lunch"],[14.5,15.5,T,"Drive to airport"],[15.5,17.5,T,"Airport"],[17.5,18.5,T,"Flight JAI \u2192 UDR"],[18.5,19.5,T,"Transfer, check in"],[19.5,20.5,F,"Freshen up"],[20.5,22.5,M,"Special dinner, Udaivilas"],[22.5,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Nov 3","Tue","Udaipur \u00b7 palaces & lake",[[0,7.5,Z,"Sleep"],[7.5,8.5,F,"Get ready"],[8.5,9.5,M,"Breakfast"],[9.5,9.75,F,"Meet in lobby"],[9.75,10,T,"Drive"],[10,11.5,S,"City Palace"],[11.5,11.75,T,"Drive"],[11.75,12.75,S,"Saheliyon Ki Bari"],[12.75,13,T,"Drive"],[13,13.5,S,"Jagdish Temple"],[13.5,14.5,M,"Lunch, Paantya"],[14.5,14.75,T,"Drive"],[14.75,16.5,H,"Udaipur markets"],[16.5,17,T,"Drive"],[17,17.5,F,"Break"],[17.5,19,S,"Lake Pichola sunset cruise"],[19,19.33,T,"Back to hotel"],[19.33,20,F,"Freshen up"],[20,22,M,"Dinner, Ambrai"],[22,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Nov 4","Wed","Udaipur \u00b7 arts & leisure",[[0,7.5,Z,"Sleep"],[7.5,8.5,F,"Get ready"],[8.5,9.5,M,"Breakfast"],[9.5,9.75,F,"Meet in lobby"],[9.75,10,T,"Drive"],[10,11.5,S,"Shilpgram"],[11.5,11.75,T,"Drive"],[11.75,12.5,S,"Fateh Sagar Lake"],[12.5,12.75,T,"Drive"],[12.75,13.75,S,"Bagore Ki Haveli"],[13.75,14.75,M,"Lunch, Juno by Qalaa"],[14.75,19.5,F,"Free afternoon (spa, cafes, shopping)"],[19.5,20,T,"To Neel Kamal"],[20,22,M,"Drinks & dinner, Neel Kamal"],[22,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Nov 5","Thu","Udaipur \u2192 Mumbai flight",[[0,7.5,Z,"Sleep"],[7.5,8.5,F,"Get ready"],[8.5,9.5,M,"Breakfast"],[9.5,11,F,"Pack, check out"],[11,14.33,T,"Airport, AI2580 UDR \u2192 BOM"],[14.33,15.5,T,"Arrive, transfer to Taj"],[15.5,18,F,"Check in, relax"],[18,18.5,T,"Drive to Worli"],[18.5,20.75,S,"Evening with Raj & TJ's relatives"],[20.75,21,T,"Drive"],[21,23,M,"Dinner, INCA by Bastian"],[23,23.5,F,"Wind down"],[23.5,24,Z,"Sleep"]],false],
+ ["Nov 6","Fri","Mumbai \u00b7 Elephanta",[[0,6.5,Z,"Sleep"],[6.5,7.5,F,"Get ready"],[7.5,8.5,M,"Breakfast"],[8.5,9,F,"Meet in lobby"],[9,10,T,"Speedboat to Elephanta"],[10,12,S,"Elephanta Caves"],[12,13,T,"Speedboat back"],[13,14.5,M,"Lunch at the Taj"],[14.5,16,F,"Leisure"],[16,20,H,"Kala Ghoda shopping"],[20,20.5,F,"Freshen up"],[20.5,22.5,M,"Dinner, Trishna"],[22.5,23,F,"Wind down"],[23,24,Z,"Sleep"]],false],
+ ["Nov 7","Sat","Mumbai \u00b7 departure",[[0,6.5,Z,"Sleep"],[6.5,7.5,F,"Get ready"],[7.5,8.5,M,"Breakfast"],[8.5,9,F,"Meet in lobby"],[9,9.5,T,"Drive"],[9.5,11.5,S,"Dharavi visit"],[11.5,13,H,"Shopping"],[13,13.5,T,"Check out, to high tea"],[13.5,15.5,M,"High tea, Taj Mahal Palace"],[15.5,16.5,F,"Break"],[16.5,17,T,"To JW Marriott"],[17,20,F,"Freshen up, relax"],[20,22,M,"Dinner, JW Marriott"],[22,23.5,F,"Pack, wind down"],[23.5,24,T,"Transfer to airport"]],false],
+ ["Nov 8","Sun","Fly home \u00b7 Mumbai \u2192 Amsterdam \u2192 Atlanta \u2192 RSW",[[0,2.5,T,"Airport, DL 9495 departs 2:30 AM"],[2.5,5,Z,"Sleep onboard (est.)"],[5,6,M,"Breakfast onboard"],[6,14,T,"Land AMS 7:50, layover, DL 0073"],[14,15.5,M,"Meal onboard"],[15.5,24,T,"Atlanta, DL 1124, land RSW 6:51 PM"]],true]
+];
+D.forEach(d=>{d.push(CATS.map((_,i)=>d[3].filter(b=>b[2]===i).reduce((a,b)=>a+b[1]-b[0],0)))});
+const HRS=d=>d[5];
+const f=v=>{const r=Math.round(v*10)/10;return (r%1===0?r.toFixed(0):r.toFixed(1))};
+const fh=v=>f(v)+" h";
+// stats
+const LAND=D.filter(d=>!d[4]);
+const n=LAND.length, tot=CATS.map((_,i)=>LAND.reduce((a,d)=>a+d[5][i],0));
+document.getElementById("rh-stats").innerHTML=CATS.map((c,i)=>
+ `<div class="stat"><div class="k"><span class="sw" style="background:${c.c}"></span>${c.n}</div><div class="v">${f(tot[i]/n)}<span class="u"> h / day</span></div></div>`).join("");
+document.getElementById("rh-legend").innerHTML=CATS.map(c=>`<span><i class="sw" style="background:${c.c}"></i>${c.n}</span>`).join("");
+// chart
+const tip=document.getElementById("rh-tip");
+function show(e,t){tip.textContent=t;tip.classList.add("on");const x=Math.min(e.clientX+12,innerWidth-250),y=e.clientY+14;tip.style.left=x+"px";tip.style.top=y+"px"}
+function hide(){tip.classList.remove("on")}
+const clock=h=>{let m=Math.round(h*60);let H=Math.floor(m/60)%24,M=m%60;const ap=H<12?"AM":"PM";H=H%12||12;return H+(M?":"+String(M).padStart(2,"0"):"")+" "+ap};
+function dayLabel(d){return `<div class="lab"><b>${d[0]} <span style="color:var(--muted);font-weight:400">${d[1]}</span></b><i>${d[2]}</i></div>`}
+function hoursView(){
+ let html="";
+ D.forEach(d=>{
+  let segs="";
+  d[5].forEach((v,i)=>{ if(v<=0) return; const c=CATS[i];
+   const label=v>=1.4?f(v):"";
+   segs+=`<div class="seg${c.dk?" dk":""}" tabindex="0" style="--c:${c.c};flex:${v} 1 0" data-t="${d[0]} · ${c.n}: ${fh(v)}">${label}</div>`;});
+  html+=`<div class="row">${dayLabel(d)}<div class="bar">${segs}</div></div>`;
+ });
+ html+=`<div class="axis"><div></div><div><span>0</span><span>6</span><span>12</span><span>18</span><span>24 h</span></div></div>`;
+ return html;
+}
+function timelineView(){
+ let html='<div class="tl-scroll"><div class="tl-in">';
+ html+=`<div class="axis tl-top"><div></div><div class="ticks"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span></div></div>`;
+ D.forEach(d=>{
+  let segs="";
+  d[3].forEach(b=>{ const c=CATS[b[2]], w=b[1]-b[0];
+   const label=w>=1.3?b[3]:"";
+   segs+=`<div class="blk${c.dk?" dk":""}" tabindex="0" style="--c:${c.c};left:${b[0]/24*100}%;width:${w/24*100}%" data-t="${clock(b[0])}\u2013${clock(b[1]>=24?0:b[1])} \u00b7 ${b[3]}"><span>${label}</span></div>`;});
+  html+=`<div class="row">${dayLabel(d)}<div class="track"><i style="left:25%"></i><i style="left:50%"></i><i style="left:75%"></i>${segs}</div></div>`;
+ });
+ html+='</div></div>';
+ return html;
+}
+const chartEl=document.getElementById("rh-chart");
+function bind(){
+ chartEl.querySelectorAll("[data-t]").forEach(s=>{
+  s.addEventListener("mousemove",e=>show(e,s.dataset.t));
+  s.addEventListener("mouseleave",hide);
+  s.addEventListener("focus",()=>{const r=s.getBoundingClientRect();show({clientX:r.left,clientY:r.top-30},s.dataset.t)});
+  s.addEventListener("blur",hide);
+ });
+}
+function setView(v){
+ chartEl.innerHTML=v==="time"?timelineView():hoursView();
+ document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-pressed",t.dataset.v===v));
+ bind();
+}
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>setView(t.dataset.v)));
+setView("time");
+// table
+document.getElementById("rh-table").innerHTML=
+ `<tr><th>Day</th>${CATS.map(c=>`<th>${c.n}</th>`).join("")}</tr>`+
+ D.map(d=>`<tr><td>${d[0]} · ${d[2]}</td>${d[5].map(v=>`<td>${f(v)}</td>`).join("")}</tr>`).join("")+
+ `<tr><td><b>Land tour total</b></td>${tot.map(v=>`<td><b>${f(v)}</b></td>`).join("")}</tr>`;
+
+})();
 </script>
 </body>
 </html>
